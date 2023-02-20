@@ -4,14 +4,10 @@ import Footer from "@/components/Footer.jsx"
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en">
-      <head />    
-      <body>
-      <Header />
-        {children}
-        <Footer />
-      </body>
-     
-    </html>
+    <>
+      <Header />  
+      <body>{children}</body>
+      <Footer />
+    </>
   )
 }
