@@ -1,13 +1,17 @@
-import './globals.css'
-import Header from "@/components/Header.jsx"
-import Footer from "@/components/Footer.jsx"
+import "./globals.css";
+import Header from "@/components/Header.jsx";
+import Footer from "@/components/Footer.jsx";
 
 export default function RootLayout({ children }) {
   return (
-    <>
-      <Header />  
-      <body>{children}</body>
-      <Footer />
-    </>
-  )
+    <html>
+      <body>
+        <div className="flex flex-col min-h-screen">
+          <Header />
+          <main className="flex-grow">{children}</main>
+          <Footer />
+        </div>
+      </body>
+    </html>
+  );
 }

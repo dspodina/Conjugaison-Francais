@@ -2,16 +2,16 @@ import Link from 'next/link'
 
 const Footer = () => {
   return (
-    <div className="container mx-auto bg-greenish h-[70px] text-[18px] lg:flex items-center">
-        <p className='justify-start'>©2023 - Pa-ra-pa-parler. All rights reserved.</p>
-        <div className="flex justify-around lg:w-1/2">
-            <button className="">
-                <Link href="/privacy policy" className="">Privacy policy</Link>
-            </button>
-            <button className="">
-                <Link href="/about us" className="">About us</Link>
-            </button>          
+    <div className="bg-greenish h-[70px] text-lg lg:flex">
+      <div className="container mx-auto flex flex-col lg:flex-row">
+        <div className="flex justify-start lg:w-1/2 items-center">
+          <p>©2023 - Pa-ra-pa-parler. All rights reserved.</p>
         </div>
+        <div className="lg:w-1/2 pb-4 lg:py-6 flex justify-around">
+          <Link href="/privacy policy">Privacy policy</Link>
+          <Link href="/about-us">About Us</Link>
+        </div>
+      </div>
     </div>
   );
 };

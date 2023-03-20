@@ -1,8 +1,6 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  content: [
-    "./src/**/*.{js,ts,jsx,tsx}",
-  ],
+  content: ["./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
     screens: {
       sm: "640px",
@@ -19,19 +17,17 @@ module.exports = {
 
       "2xl": "1536px",
       // => @media (min-width: 1536px) { ... }
-  },
+    },
     extend: {
       colors: {
-        lightbeige: "#F1EBDC",
         beige: "#DFCFB0",
         pink: "#EFCDB9",
         greenish: "#B6D2C1",
-        black: "#100F0D"
-
-    },
+      },
       fontFamily: {
-        sans: ["var(--font-rubik)"],
+        sans: ["var(--font-caveat)"],
         mono: ["var(--font-poppins)"],
+        caveat: ["caveat", "cursive"],
       },
     },
   },
