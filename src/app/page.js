@@ -1,35 +1,48 @@
 import { Inter } from "@next/font/google";
 import Image from "next/image";
-import HowToLearn from "public/howtoLearn.png";
 import learnTips1 from "public/1.svg";
 import learnTips2 from "public/2.svg";
 import learnTips3 from "public/3.svg";
 import learnTips4 from "public/4.svg";
 import learnTips5 from "public/5.svg";
 import learnTips6 from "public/6.svg";
+import circle from "public/circle.svg"
 
 const inter = Inter({ subsets: ["latin"] });
 
 export default function Home() {
   return (
-    <div className="container flex flex-col">
+    <div className="container flex flex-col justify-center">
+      <div className="flex flex-col items-center">
+        <div className="text-4xl font-caveat my-16">
+          <h2>About Pa-ra-pa Parler</h2>
+        </div>
+        <div className="flex justify-center mx-8 lg:w-2/3 text-lg mb-16 items-center">
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
+            ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+            aliquip ex ea commodo consequat. Duis aute irure dolor in
+            reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+            pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
+            culpa qui officia deserunt mollit anim id est laborum.
+          </p>
+          </div>
+      </div>
       <div className="text-4xl flex justify-center mt-16 font-caveat">
-        <h2>How to learn french language</h2>
+        <h2>Tips how to learn French</h2>
       </div>
       <div className="flex flex-col py-24">
-        <div className="flex flex-row justify-around">
+        <div className="flex flex-col md:flex-row items-center md:justify-around">
           <Image src={learnTips2} alt="" className="w-[250px]" />
           <Image src={learnTips3} alt="" className="w-[250px]" />
           <Image src={learnTips4} alt="" className="w-[250px]" />
         </div>
-        <div className="flex flex-row justify-around">
+        <div className="flex flex-col md:flex-row items-center md:justify-around">
           <Image src={learnTips1} alt="" className="w-[250px]" />
           <Image src={learnTips5} alt="" className="w-[250px]" />
           <Image src={learnTips6} alt="" className="w-[250px]" />
         </div>
-      </div>
-      <div className="text-4xl flex justify-center mt-16 font-caveat">
-        <h2>Let's learn verbs!</h2>
       </div>
     </div>
   );

@@ -23,6 +23,7 @@ module.exports = {
         beige: "#DFCFB0",
         pink: "#EFCDB9",
         greenish: "#B6D2C1",
+        smokypink: "#EBA596"
       },
       fontFamily: {
         sans: ["var(--font-caveat)"],
