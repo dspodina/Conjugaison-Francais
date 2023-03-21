@@ -2,7 +2,7 @@ import Link from "next/link";
 
 const CheckRules = () => {
   return (
-    <button className="bg-greenish rounded min-h-[40px] w-[150px]">
+    <button className="bg-greenish w-[150px] mx-4 shadow-md mt-4 px-8 min-h-[40px] min-w-[140px] rounded-lg hover:bg-white transition duration-500 ease-in-out transform hover:-translate-y-1 hover:scale-105">
       <Link className="text-lg" href="/search-result">Verb tenses</Link>
     </button>
   );
