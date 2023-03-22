@@ -16,7 +16,7 @@ export default function Home() {
       <div className="flex flex-col items-center">
           <h2 className="text-4xl font-caveat my-16">About Pa-ra-pa Parler</h2>
         <div className="flex mx-8 lg:w-2/3 text-lg mb-16">
-          <p className="">
+          <p className="text-center">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
             eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
             ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
