@@ -1,9 +1,7 @@
-import TensesInput from "@/components/TensesInput.jsx";
-import TensesCheckButton from "@/components/Buttons/CheckButton.jsx";
+import CheckResultButton from "@/components/Buttons/CheckResult.jsx";
 import TensesNewWord from "@/components/Buttons/NewWord.jsx";
 import Finish from "src/components/Buttons/Finish.jsx";
-// import Image from "next/image";
-// import Link from "next/link";
+import GameAnswer from "@/components/GameAnswer.jsx";
 
 const Play = () => {
   return (
@@ -16,8 +14,9 @@ const Play = () => {
           <h3><span className="text-smokypink">Aller</span> en passé composé</h3>
         </div>
         <div className="flex flex-row justify-center min-h-[40px] mt-4">
-          <TensesInput />
-          <TensesCheckButton />
+          <p className="text-2xl font-caveat mr-4">Vous</p>
+          <GameAnswer />
+          <CheckResultButton />
         </div>
         <div className="flex flex-row justify-center mt-8 mb-24">
           <TensesNewWord />

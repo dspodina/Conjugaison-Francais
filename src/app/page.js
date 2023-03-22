@@ -6,19 +6,17 @@ import learnTips3 from "public/3.svg";
 import learnTips4 from "public/4.svg";
 import learnTips5 from "public/5.svg";
 import learnTips6 from "public/6.svg";
-import circle from "public/circle.svg"
+import LetsPlayButton from "src/components/Buttons/LetsPlayButton.jsx";
 
 const inter = Inter({ subsets: ["latin"] });
 
 export default function Home() {
   return (
-    <div className="container flex flex-col justify-center">
+    <div className="container mx-auto flex flex-col justify-center">
       <div className="flex flex-col items-center">
-        <div className="text-4xl font-caveat my-16">
-          <h2>About Pa-ra-pa Parler</h2>
-        </div>
-        <div className="flex justify-center mx-8 lg:w-2/3 text-lg mb-16 items-center">
-          <p>
+          <h2 className="text-4xl font-caveat my-16">About Pa-ra-pa Parler</h2>
+        <div className="flex mx-8 lg:w-2/3 text-lg mb-16">
+          <p className="">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
             eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
             ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
@@ -27,21 +25,27 @@ export default function Home() {
             pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
             culpa qui officia deserunt mollit anim id est laborum.
           </p>
-          </div>
-      </div>
-      <div className="text-4xl flex justify-center mt-16 font-caveat">
-        <h2>Tips how to learn French</h2>
-      </div>
-      <div className="flex flex-col py-24">
-        <div className="flex flex-col md:flex-row items-center md:justify-around">
-          <Image src={learnTips2} alt="" className="w-[250px]" />
-          <Image src={learnTips3} alt="" className="w-[250px]" />
-          <Image src={learnTips4} alt="" className="w-[250px]" />
         </div>
-        <div className="flex flex-col md:flex-row items-center md:justify-around">
-          <Image src={learnTips1} alt="" className="w-[250px]" />
-          <Image src={learnTips5} alt="" className="w-[250px]" />
-          <Image src={learnTips6} alt="" className="w-[250px]" />
+      </div>
+      <div className="flex flex-col items-center mb-24">
+        <h2 className="text-4xl font-caveat my-16">Let's play!</h2>
+        <LetsPlayButton />
+      </div>
+      <div className="flex flex-col justify-center">
+        <div className="text-4xl flex justify-center mt-16 font-caveat">
+          <h2>Tips how to learn French</h2>
+        </div>
+        <div className="flex flex-col py-24">
+          <div className="flex flex-col md:flex-row items-center md:justify-around">
+            <Image src={learnTips2} alt="" className="w-[250px]" />
+            <Image src={learnTips3} alt="" className="w-[250px]" />
+            <Image src={learnTips4} alt="" className="w-[250px]" />
+          </div>
+          <div className="flex flex-col md:flex-row items-center md:justify-around">
+            <Image src={learnTips1} alt="" className="w-[250px]" />
+            <Image src={learnTips5} alt="" className="w-[250px]" />
+            <Image src={learnTips6} alt="" className="w-[250px]" />
+          </div>
         </div>
       </div>
     </div>
