@@ -1,4 +1,4 @@
-import Tenses from "src/components/Tenses.jsx";
+import TensesInput from "@/components/TensesInput.jsx";
 import TensesCheckButton from "@/components/Buttons/CheckButton.jsx";
 import TensesNewWord from "@/components/Buttons/NewWord.jsx";
 import Finish from "src/components/Buttons/Finish.jsx";
@@ -12,8 +12,11 @@ const Play = () => {
         <h2 className="text-4xl flex justify-center mt-16 font-caveat">
           Let's learn the verbs!
         </h2>
-        <div className="flex flex-row justify-center min-h-[40px] mt-24">
-          <Tenses />
+        <div className="text-2xl flex justify-center mt-16">
+          <h3><span className="text-smokypink">Aller</span> en passé composé</h3>
+        </div>
+        <div className="flex flex-row justify-center min-h-[40px] mt-4">
+          <TensesInput />
           <TensesCheckButton />
         </div>
         <div className="flex flex-row justify-center mt-8 mb-24">

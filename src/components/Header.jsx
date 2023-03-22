@@ -1,8 +1,8 @@
 import Image from "next/image";
 import Link from "next/link";
 import Logo from "public/logo.svg";
-import CheckRules from "src/components/Buttons/CheckRules.jsx"
-import LetsPlay from "src/components/Buttons/LetsPlay.jsx"
+import ConjugaisonButton from "@/components/Buttons/ConjugaisonButton.jsx"
+import LetsPlayButton from "@/components/Buttons/LetsPlayButton.jsx"
 
 const Header = () => {
   return (
@@ -13,8 +13,8 @@ const Header = () => {
       </Link>
       </div>
       <div className="flex flex-row text-center w-1/2 justify-around">
-        <CheckRules />
-        <LetsPlay />
+        <ConjugaisonButton />
+        <LetsPlayButton />
       </div>
     </div>
   );

@@ -1,5 +1,3 @@
-import Link from 'next/link'
-
 const Footer = () => {
   return (
     <div className="bg-greenish h-[70px] text-lg lg:flex">
