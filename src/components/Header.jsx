@@ -7,7 +7,7 @@ import SearchResultButton from "src/components/Buttons/SearchResult.jsx";
 
 const Header = () => {
   return (
-    <div className="container mx-auto flex h-[200px] justify-between items-center">
+    <div className="container mx-auto flex flex-col lg:flex-row mb-16 lg:mb-0 h-[200px] justify-between items-center">
       <div className="">
         <Link href="/">
           <Image
