@@ -1,4 +1,3 @@
-import SearchResultButton from "src/components/Buttons/SearchResult.jsx"
 
 
 const Conjugaison = () => {

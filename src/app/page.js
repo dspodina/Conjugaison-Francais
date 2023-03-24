@@ -6,7 +6,7 @@ import learnTips3 from "public/3.svg";
 import learnTips4 from "public/4.svg";
 import learnTips5 from "public/5.svg";
 import learnTips6 from "public/6.svg";
-import LetsPlayButton from "src/components/Buttons/LetsPlayButton.jsx";
+import LetsPlayButton from "@/components/Buttons/LetsPlayBtn.jsx";
 
 const inter = Inter({ subsets: ["latin"] });
 

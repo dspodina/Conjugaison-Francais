@@ -1,27 +1,75 @@
-import CheckResultButton from "@/components/Buttons/CheckResult.jsx";
-import TensesNewWord from "@/components/Buttons/NewWord.jsx";
-import Finish from "src/components/Buttons/Finish.jsx";
-import GameAnswer from "@/components/GameAnswer.jsx";
+"use client";
+
+import CheckResultButton from "@/components/Buttons/CheckResultBtn.jsx";
+import NewWordBtn from "@/components/Buttons/NewWordBtn.jsx";
+import FinishBtn from "@/components/Buttons/FinishBtn.jsx";
+import GameInput from "src/components/GameInput.jsx";
+import React, { useState } from "react";
+import axios from "axios";
 
 const Play = () => {
+  const randomVerb = () => {
+    const verbs = ["être", "pleurer", "avoir", "aller", "faire", "enregistrer", "pêcher", "dire", "tousser", "rougir", "revêtir", "remettre", "frapper", "répandre", "presser", "refléter", "gérer", "rejeter", "mélanger", "reconduire", "méprendre", "jurer", "soutenir", "secouer", "ressentir", "louer", "nommer", "informer", "geindre", "féliciter", "éviter", "endormir", "emprunter", "dépenser", "conseiller", "confondre", "cheminer", "causer", "blaguer", "augmenter", "arracher", "annoncer", "admirer", "adjoindre", "acquérir", "accueillir", "accrocher", "accourir", "accorder", "acclamer", "tomber", "souhaiter", "visiter", "remplacer", "reconnaître", "noter", "enseigner", "effacer", "décrire", "cuire", "coûter", "goûter", "ajouter", "allumer", "éteindre", "traduire", "épeler", "laver", "annuler", "permettre", "oser", "accompagner", "signer", "répéter", "remercier", "arranger", "inviter", "crier", "craindre", "approcher", "épouser", "supposer", "maintenir", "détester", "danser", "embrasser", "pardonner", "rire", "intéresser", "amuser", "terminer", "refuser", "accepter", "présenter", "chanter", "conduire", "choisir", "préparer", "offrir", "préférer", "coucher", "utiliser", "recevoir", "adorer", "agir", "expliquer", "vendre", "décider", "apporter", "bouger", "compter", "valoir", "fermer", "rencontrer", "sauver", "répondre", "raconter", "pouvoir", "continuer", "toucher", "emmener", "quitter", "monter", "lire", "rappeler", "acheter", "gagner", "retrouver", "écrire", "servir", "prier", "porter", "asseoir", "garder", "boire", "apprendre", "envoyer", "marcher", "occuper", "dormir", "excuser", "changer", "ouvrir", "tirer", "payer", "commencer", "devenir", "entrer", "manger", "travailler", "oublier", "tenir", "rendre", "vivre", "rentrer", "sentir", "perdre", "finir", "jouer", "revenir"]
+    const randomIndex = Math.floor(Math.random() * verbs.length)
+    return verbs[randomIndex]
+}
+const randomPronoun = () => {
+  const pronoun = ["je", "tu", "il", "elle", "on", "vous", "nous", "ils", "elles"]
+  const randomIndex = Math.floor(Math.random() * pronoun.length)
+  return pronoun[randomIndex]
+}
+const randomTenses = () => {
+  const tenses = ["imparfait", "passe compose", "future simple", "present", "conditionnel présent", "subjonctif présent", "future proche"]
+  const randomIndex = Math.floor(Math.random() * tenses.length)
+  return tenses[randomIndex]
+}
+
+  const [inputValue, setInputValue] = useState("");
+  const handleInputChange = (event) => {
+    setInputValue(event.target.value);
+  };
+
+  const handleButtonClick = () => {
+    axios
+      .request(options)
+      .then(function (response) {
+        console.log(response.data);
+      })
+      .catch(function (error) {
+        console.error(error);
+      });
+    console.log(inputValue);
+  };
+
+  const options = {
+    method: "GET",
+    url: "https://french-conjugaison.p.rapidapi.com/conjugate/aller",
+    headers: {
+      "X-RapidAPI-Key": "c6b0447072msh0ad8b9499e5a62dp19a111jsn6cbc311b56dc",
+      "X-RapidAPI-Host": "french-conjugaison.p.rapidapi.com",
+    },
+  };
+
   return (
     <div>
       <div>
         <h2 className="text-4xl flex justify-center mt-16 font-caveat">
           Let's learn the verbs!
         </h2>
-        <div className="text-2xl flex justify-center mt-16">
-          <h3><span className="text-smokypink">Aller</span> en passé composé</h3>
-        </div>
-        <div className="flex flex-row justify-center min-h-[40px] mt-4">
-          <p className="text-2xl font-caveat mr-4">Vous</p>
-          <GameAnswer />
-          <CheckResultButton />
-        </div>
-        <div className="flex flex-row justify-center mt-8 mb-24">
-          <TensesNewWord />
-          <Finish />
-        </div>
+      </div>
+      <div className="text-2xl flex justify-center mt-16">
+        <h3> 
+        <span className="text-smokypink capitalize">{randomVerb()}</span> en {randomTenses()}
+        </h3>
+      </div>
+      <div className="flex flex-row justify-center min-h-[40px] mt-4">
+        <p className="text-2xl font-caveat mr-4 capitalize">{randomPronoun()}</p>
+        <GameInput value={inputValue} onChange={handleInputChange} />
+        <CheckResultButton handleSubmit={handleButtonClick}/>
+      </div>
+      <div className="flex flex-row justify-center mt-8 mb-24">
+        <NewWordBtn />
+        <FinishBtn />
       </div>
     </div>
   );
