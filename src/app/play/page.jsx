@@ -19,7 +19,7 @@ const randomPronoun = () => {
   return pronoun[randomIndex]
 }
 const randomTenses = () => {
-  const tenses = ["imparfait", "passe compose", "future simple", "present", "conditionnel présent", "subjonctif présent", "future proche"]
+  const tenses = ["imparfait", "passé composé", "futur simple", "présent", "conditionnel présent", "subjonctif présent", "futur proche"]
   const randomIndex = Math.floor(Math.random() * tenses.length)
   return tenses[randomIndex]
 }
