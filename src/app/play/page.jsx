@@ -4,25 +4,212 @@ import CheckResultButton from "@/components/Buttons/CheckResultBtn.jsx";
 import NewWordBtn from "@/components/Buttons/NewWordBtn.jsx";
 import FinishBtn from "@/components/Buttons/FinishBtn.jsx";
 import GameInput from "src/components/GameInput.jsx";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import axios from "axios";
 
 const Play = () => {
+  let[verb, setVerb] = useState("")
+  let[pronoun, setPronoun] = useState("")
+  let[tenses, setTenses] = useState("")
+  useEffect(() => {
+  setVerb(randomVerb())
+  setPronoun(randomPronoun())
+  setTenses(randomTenses())
+  },[])
   const randomVerb = () => {
-    const verbs = ["être", "pleurer", "avoir", "aller", "faire", "enregistrer", "pêcher", "dire", "tousser", "rougir", "revêtir", "remettre", "frapper", "répandre", "presser", "refléter", "gérer", "rejeter", "mélanger", "reconduire", "méprendre", "jurer", "soutenir", "secouer", "ressentir", "louer", "nommer", "informer", "geindre", "féliciter", "éviter", "endormir", "emprunter", "dépenser", "conseiller", "confondre", "cheminer", "causer", "blaguer", "augmenter", "arracher", "annoncer", "admirer", "adjoindre", "acquérir", "accueillir", "accrocher", "accourir", "accorder", "acclamer", "tomber", "souhaiter", "visiter", "remplacer", "reconnaître", "noter", "enseigner", "effacer", "décrire", "cuire", "coûter", "goûter", "ajouter", "allumer", "éteindre", "traduire", "épeler", "laver", "annuler", "permettre", "oser", "accompagner", "signer", "répéter", "remercier", "arranger", "inviter", "crier", "craindre", "approcher", "épouser", "supposer", "maintenir", "détester", "danser", "embrasser", "pardonner", "rire", "intéresser", "amuser", "terminer", "refuser", "accepter", "présenter", "chanter", "conduire", "choisir", "préparer", "offrir", "préférer", "coucher", "utiliser", "recevoir", "adorer", "agir", "expliquer", "vendre", "décider", "apporter", "bouger", "compter", "valoir", "fermer", "rencontrer", "sauver", "répondre", "raconter", "pouvoir", "continuer", "toucher", "emmener", "quitter", "monter", "lire", "rappeler", "acheter", "gagner", "retrouver", "écrire", "servir", "prier", "porter", "asseoir", "garder", "boire", "apprendre", "envoyer", "marcher", "occuper", "dormir", "excuser", "changer", "ouvrir", "tirer", "payer", "commencer", "devenir", "entrer", "manger", "travailler", "oublier", "tenir", "rendre", "vivre", "rentrer", "sentir", "perdre", "finir", "jouer", "revenir"]
-    const randomIndex = Math.floor(Math.random() * verbs.length)
-    return verbs[randomIndex]
-}
-const randomPronoun = () => {
-  const pronoun = ["je", "tu", "il", "elle", "on", "vous", "nous", "ils", "elles"]
-  const randomIndex = Math.floor(Math.random() * pronoun.length)
-  return pronoun[randomIndex]
-}
-const randomTenses = () => {
-  const tenses = ["imparfait", "passé composé", "futur simple", "présent", "conditionnel présent", "subjonctif présent", "futur proche"]
-  const randomIndex = Math.floor(Math.random() * tenses.length)
-  return tenses[randomIndex]
-}
+    const verbs = [
+      "être",
+      "pleurer",
+      "avoir",
+      "aller",
+      "faire",
+      "enregistrer",
+      "pêcher",
+      "dire",
+      "tousser",
+      "rougir",
+      "revêtir",
+      "remettre",
+      "frapper",
+      "répandre",
+      "presser",
+      "refléter",
+      "gérer",
+      "rejeter",
+      "mélanger",
+      "reconduire",
+      "méprendre",
+      "jurer",
+      "soutenir",
+      "secouer",
+      "ressentir",
+      "louer",
+      "nommer",
+      "informer",
+      "geindre",
+      "féliciter",
+      "éviter",
+      "endormir",
+      "emprunter",
+      "dépenser",
+      "conseiller",
+      "confondre",
+      "cheminer",
+      "causer",
+      "blaguer",
+      "augmenter",
+      "arracher",
+      "annoncer",
+      "admirer",
+      "adjoindre",
+      "acquérir",
+      "accueillir",
+      "accrocher",
+      "accourir",
+      "accorder",
+      "acclamer",
+      "tomber",
+      "souhaiter",
+      "visiter",
+      "remplacer",
+      "reconnaître",
+      "noter",
+      "enseigner",
+      "effacer",
+      "décrire",
+      "cuire",
+      "coûter",
+      "goûter",
+      "ajouter",
+      "allumer",
+      "éteindre",
+      "traduire",
+      "épeler",
+      "laver",
+      "annuler",
+      "permettre",
+      "oser",
+      "accompagner",
+      "signer",
+      "répéter",
+      "remercier",
+      "arranger",
+      "inviter",
+      "crier",
+      "craindre",
+      "approcher",
+      "épouser",
+      "supposer",
+      "maintenir",
+      "détester",
+      "danser",
+      "embrasser",
+      "pardonner",
+      "rire",
+      "intéresser",
+      "amuser",
+      "terminer",
+      "refuser",
+      "accepter",
+      "présenter",
+      "chanter",
+      "conduire",
+      "choisir",
+      "préparer",
+      "offrir",
+      "préférer",
+      "coucher",
+      "utiliser",
+      "recevoir",
+      "adorer",
+      "agir",
+      "expliquer",
+      "vendre",
+      "décider",
+      "apporter",
+      "bouger",
+      "compter",
+      "valoir",
+      "fermer",
+      "rencontrer",
+      "sauver",
+      "répondre",
+      "raconter",
+      "pouvoir",
+      "continuer",
+      "toucher",
+      "emmener",
+      "quitter",
+      "monter",
+      "lire",
+      "rappeler",
+      "acheter",
+      "gagner",
+      "retrouver",
+      "écrire",
+      "servir",
+      "prier",
+      "porter",
+      "asseoir",
+      "garder",
+      "boire",
+      "apprendre",
+      "envoyer",
+      "marcher",
+      "occuper",
+      "dormir",
+      "excuser",
+      "changer",
+      "ouvrir",
+      "tirer",
+      "payer",
+      "commencer",
+      "devenir",
+      "entrer",
+      "manger",
+      "travailler",
+      "oublier",
+      "tenir",
+      "rendre",
+      "vivre",
+      "rentrer",
+      "sentir",
+      "perdre",
+      "finir",
+      "jouer",
+      "revenir",
+    ];
+    const randomIndex = Math.floor(Math.random() * verbs.length);
+    return verbs[randomIndex];
+  };
+  const randomPronoun = () => {
+    const pronoun = [
+      "je",
+      "tu",
+      "il",
+      "elle",
+      "on",
+      "vous",
+      "nous",
+      "ils",
+      "elles",
+    ];
+    const randomIndex = Math.floor(Math.random() * pronoun.length);
+    return pronoun[randomIndex];
+  };
+  const randomTenses = () => {
+    const tenses = [
+      "imparfait",
+      "passé composé",
+      "futur simple",
+      "présent",
+      "conditionnel présent",
+      "subjonctif présent",
+      "futur proche",
+    ];
+    const randomIndex = Math.floor(Math.random() * tenses.length);
+    return tenses[randomIndex];
+  };
 
   const [inputValue, setInputValue] = useState("");
   const handleInputChange = (event) => {
@@ -42,13 +229,17 @@ const randomTenses = () => {
   };
 
   const options = {
-    method: "GET",
-    url: "https://french-conjugaison.p.rapidapi.com/conjugate/aller",
+    method: 'GET',
     headers: {
-      "X-RapidAPI-Key": "c6b0447072msh0ad8b9499e5a62dp19a111jsn6cbc311b56dc",
-      "X-RapidAPI-Host": "french-conjugaison.p.rapidapi.com",
-    },
+      'X-RapidAPI-Key': 'c6b0447072msh0ad8b9499e5a62dp19a111jsn6cbc311b56dc',
+      'X-RapidAPI-Host': 'french-conjugaison.p.rapidapi.com'
+    }
   };
+  
+  fetch('https://french-conjugaison.p.rapidapi.com/conjugate/parler', options)
+    .then(response => response.json())
+    .then(response => console.log(response))
+    .catch(err => console.error(err));
 
   return (
     <div>
@@ -58,14 +249,17 @@ const randomTenses = () => {
         </h2>
       </div>
       <div className="text-2xl flex justify-center mt-16">
-        <h3> 
-        <span className="text-smokypink capitalize">{randomVerb()}</span> en {randomTenses()}
+        <h3>
+          <span className="text-smokypink capitalize">{verb}</span> en{" "}
+          {tenses}
         </h3>
       </div>
       <div className="flex flex-row justify-center min-h-[40px] mt-4">
-        <p className="text-2xl font-caveat mr-4 capitalize">{randomPronoun()}</p>
+        <p className="text-2xl font-caveat mr-4 capitalize">
+          {pronoun}
+        </p>
         <GameInput value={inputValue} onChange={handleInputChange} />
-        <CheckResultButton handleSubmit={handleButtonClick}/>
+        <CheckResultButton handleSubmit={handleButtonClick} />
       </div>
       <div className="flex flex-row justify-center mt-8 mb-24">
         <NewWordBtn />

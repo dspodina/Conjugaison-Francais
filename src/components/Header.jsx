@@ -7,11 +7,12 @@ import SearchInput from "src/components/SearchInput.jsx"
 import SearchResultButton from "@/components/Buttons/SearchResultBtn.jsx";
 import React, { useState } from "react";
 import axios from "axios";
+import { useGlobalContext } from "@/app/context";
 
 
 const Header = () => {
   const [inputValue, setInputValue] = useState("");
-
+  const {setData} = useGlobalContext()
   const handleInputChange = (event) => {
     setInputValue(event.target.value);
   };
@@ -20,7 +21,7 @@ const Header = () => {
     axios
       .request(options)
       .then(function (response) {
-        console.log(response.data);
+        setData(response.data);
       })
       .catch(function (error) {
         console.error(error);
@@ -29,13 +30,17 @@ const Header = () => {
   };
 
   const options = {
-    method: "GET",
-    url: "https://french-conjugaison.p.rapidapi.com/conjugate/aller",
+    method: 'GET',
     headers: {
-      "X-RapidAPI-Key": "c6b0447072msh0ad8b9499e5a62dp19a111jsn6cbc311b56dc",
-      "X-RapidAPI-Host": "french-conjugaison.p.rapidapi.com",
-    },
+      'X-RapidAPI-Key': 'c6b0447072msh0ad8b9499e5a62dp19a111jsn6cbc311b56dc',
+      'X-RapidAPI-Host': 'french-conjugaison.p.rapidapi.com'
+    }
   };
+  
+  fetch('https://french-conjugaison.p.rapidapi.com/conjugate/parler', options)
+    .then(response => response.json())
+    .then(response => console.log(response))
+    .catch(err => console.error(err));
 
   return (
     <div className="container mx-auto flex flex-col lg:flex-row mb-16 lg:mb-0 h-[200px] justify-between items-center">
