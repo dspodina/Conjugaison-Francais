@@ -7,12 +7,16 @@ import GameInput from "src/components/GameInput.jsx";
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import jp from "jsonpath";
+import wellDone from "public/wellDone.svg";
+import tryAgain from "public/tryAgain.svg";
+import Image from "next/image";
 
 const Play = () => {
   let [verb, setVerb] = useState("");
   let [pronoun, setPronoun] = useState("");
   let [tenses, setTenses] = useState("");
   let [playResult, setPlayResult] = useState("");
+  let testvariable;
   useEffect(() => {
     setVerb(randomVerb());
     setPronoun(randomPronoun());
@@ -218,6 +222,8 @@ const Play = () => {
   };
 
   const handleButtonClick = () => {
+    setInputValue("");
+    setPlayResult("");
     console.log("inputValue: ", inputValue);
     console.log("verb", verb);
     console.log("tenses", tenses);
@@ -250,6 +256,16 @@ const Play = () => {
       });
   };
 
+  if (playResult === "Try again!") {
+    testvariable = (
+      <Image src={tryAgain} alt="" className="w-[25px] mt-5 mr-1" />
+    );
+  } else if (playResult === "Well done!") {
+    testvariable = (
+      <Image src={wellDone} alt="" className="w-[25px] mt-5 mr-1" />
+    );
+  } else testvariable = "";
+
   const options = {
     method: "GET",
     url: "https://french-conjugaison.p.rapidapi.com/conjugate/" + verb,
@@ -273,12 +289,13 @@ const Play = () => {
       </div>
       <div className="min-h-[40px] mt-4">
         <div className="flex flex-row justify-center">
-        <p className="text-2xl font-caveat mr-4 capitalize">{pronoun}</p>
-        <GameInput value={inputValue} onChange={handleInputChange} />
-        <CheckResultButton handleSubmit={handleButtonClick} />
+          <p className="text-2xl font-caveat mr-4 capitalize">{pronoun}</p>
+          <GameInput value={inputValue} onChange={handleInputChange} />
+          <CheckResultButton handleSubmit={handleButtonClick} />
         </div>
-        <div>
-          <p className="text-xl flex justify-center mt-4">{playResult}</p>
+        <div className="flex flex-row justify-center">
+          <p>{testvariable}</p>
+          <p className="text-xl mt-4">{playResult}</p>
         </div>
       </div>
       <div className="flex flex-row justify-center mt-8 mb-24">
@@ -310,9 +327,9 @@ function getPronounLine(pronoun) {
     return 1;
   } else if (pronoun == "il" || pronoun == "elle" || pronoun == "on") {
     return 2;
-  } else if (pronoun == "vous") {
-    return 3;
   } else if (pronoun == "nous") {
+    return 3;
+  } else if (pronoun == "vous") {
     return 4;
   } else if (pronoun == "ils" || pronoun == "elles") {
     return 5;
