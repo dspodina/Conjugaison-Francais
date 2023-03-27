@@ -6,7 +6,7 @@ import FinishBtn from "@/components/Buttons/FinishBtn.jsx";
 import GameInput from "@/components/GameInput.jsx";
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import jp from "jsonpath";
+// import jp from "jsonpath";
 import wellDone from "public/wellDone.svg";
 import tryAgain from "public/tryAgain.svg";
 import Image from "next/image";
@@ -265,7 +265,8 @@ const Play = () => {
     testvariable = (
       <Image src={wellDone} alt="" className="w-[25px] mt-5 mr-1" />
     );
-  } else testvariable = "";
+  } 
+  else testvariable = "";
 
   const options = {
     method: "GET",
