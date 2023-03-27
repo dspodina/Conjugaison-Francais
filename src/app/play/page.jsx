@@ -9,16 +9,15 @@ import axios from "axios";
 import jp from "jsonpath";
 
 const Play = () => {
-  let[verb, setVerb] = useState("")
-  let[pronoun, setPronoun] = useState("")  
-  let[tenses, setTenses] = useState("")
-  // let[playResult, setPlayResult] = useState("")
+  let [verb, setVerb] = useState("");
+  let [pronoun, setPronoun] = useState("");
+  let [tenses, setTenses] = useState("");
+  let [playResult, setPlayResult] = useState("");
   useEffect(() => {
-  setVerb(randomVerb())
-  setPronoun(randomPronoun())
-  setTenses(randomTenses())
-  // setPlayResult(playResult())
-  },[])
+    setVerb(randomVerb());
+    setPronoun(randomPronoun());
+    setTenses(randomTenses());
+  }, []);
   const randomVerb = () => {
     const verbs = [
       "être",
@@ -183,7 +182,6 @@ const Play = () => {
       "revenir",
     ];
     const randomIndex = Math.floor(Math.random() * verbs.length);
-    //console.log("verbs[randomIndex]", verbs[randomIndex]);
     return verbs[randomIndex];
   };
   const randomPronoun = () => {
@@ -203,19 +201,18 @@ const Play = () => {
   };
   const randomTenses = () => {
     const tenses = [
-      "imparfait",
-      "passé composé",
-      "futur simple",
-      "présent",
-      "conditionnel présent",
-      "subjonctif présent",
+      "à l'imparfait",
+      "au passé composé",
+      "au futur simple",
+      "au présent",
+      "au conditionnel présent",
     ];
     const randomIndex = Math.floor(Math.random() * tenses.length);
     return tenses[randomIndex];
   };
 
   const [inputValue, setInputValue] = useState("");
-  
+
   const handleInputChange = (event) => {
     setInputValue(event.target.value);
   };
@@ -224,70 +221,65 @@ const Play = () => {
     console.log("inputValue: ", inputValue);
     console.log("verb", verb);
     console.log("tenses", tenses);
-    console.log("pronoun", pronoun);    
+    console.log("pronoun", pronoun);
     //runApiFunction();
     axios
-      .request(options).then(function (response) {
+      .request(options)
+      .then(function (response) {
         //console.log(response.data);
         // get the output array for a specific Tense
-        let tenseArray = jp.query(response.data, getJsonPath(tenses)); 
+        let tenseArray = jp.query(response.data, getJsonPath(tenses));
         console.log(tenseArray[0]);
         // convert object into Array
-        let objectToArray = Object.entries(tenseArray[0])
+        let objectToArray = Object.entries(tenseArray[0]);
         console.log(objectToArray);
-        // get the output line for a specific Pronoun]
-        let pronounLine = objectToArray[getPronounLine(pronoun)][1]        
+        // get the output line for a specific Pronoun
+        let pronounLine = objectToArray[getPronounLine(pronoun)][1];
         console.log(pronounLine);
-        //compare input with the dictionry 
+        //compare input with the dictionry
         let playResult = pronounLine.search(inputValue);
         console.log(playResult);
-        if (playResult >= 0){
-          console.log("Well done!");
-        } 
-        else {
-          console.log("Try again");
+        if (playResult >= 0) {
+          setPlayResult("Well done!");
+        } else {
+          setPlayResult("Try again!");
         }
-      }).catch(function (error) {
+      })
+      .catch(function (error) {
         console.error(error);
       });
   };
 
-
-
   const options = {
-    method: 'GET',
-    url: 'https://french-conjugaison.p.rapidapi.com/conjugate/'+verb,
+    method: "GET",
+    url: "https://french-conjugaison.p.rapidapi.com/conjugate/" + verb,
     headers: {
-      'X-RapidAPI-Key': 'c6b0447072msh0ad8b9499e5a62dp19a111jsn6cbc311b56dc',
-      'X-RapidAPI-Host': 'french-conjugaison.p.rapidapi.com'
-    }
+      "X-RapidAPI-Key": "c6b0447072msh0ad8b9499e5a62dp19a111jsn6cbc311b56dc",
+      "X-RapidAPI-Host": "french-conjugaison.p.rapidapi.com",
+    },
   };
-  /*fetch("https://french-conjugaison.p.rapidapi.com/conjugate/"+verb, options)
-  .then(response => response.json())
-  .then(response => console.log(response))
-  .catch(err => console.error(err));  */
 
-  
   return (
     <div>
       <div>
-        <h2 className="text-4xl flex justify-center mt-16 font-caveat">
+        <h2 className="text-4xl flex justify-center mt-12 font-caveat">
           Let's learn the verbs!
         </h2>
       </div>
       <div className="text-2xl flex justify-center mt-16">
         <h3>
-          <span className="text-smokypink capitalize">{verb}</span> en{" "}          
-          {tenses}
+          <span className="text-smokypink capitalize">{verb}</span> {tenses}
         </h3>
       </div>
-      <div className="flex flex-row justify-center min-h-[40px] mt-4">
-        <p className="text-2xl font-caveat mr-4 capitalize">
-          {pronoun}
-        </p>
-        {/* <p>{this.state.playResult}</p> */}
+      <div className="min-h-[40px] mt-4">
+        <div className="flex flex-row justify-center">
+        <p className="text-2xl font-caveat mr-4 capitalize">{pronoun}</p>
         <GameInput value={inputValue} onChange={handleInputChange} />
         <CheckResultButton handleSubmit={handleButtonClick} />
+        </div>
+        <div>
+          <p className="text-xl flex justify-center mt-4">{playResult}</p>
+        </div>
       </div>
       <div className="flex flex-row justify-center mt-8 mb-24">
         <NewWordBtn />
@@ -297,36 +289,34 @@ const Play = () => {
   );
 };
 
-function getJsonPath(tenses)
-{
-  if (tenses == "imparfait")
-  {return "$.data.indicatif.imparfait";}
-  else if (tenses == "passé composé")
-  {return "$.data.indicatif.passeCompose";}
-  else if (tenses == "futur simple")
-  {return "$.data.indicatif.futurSimple";}
-  else if (tenses == "présent")
-  {return "$.data.indicatif.present";}
-  else if (tenses == "conditionnel présent")
-  {return "$.data.conditionnel.present";}
-  else if (tenses == "subjonctif présent")
-  {return "$.data.subjonctif.present";}
+function getJsonPath(tenses) {
+  if (tenses == "à l'imparfait") {
+    return "$.data.indicatif.imparfait";
+  } else if (tenses == "au passé composé") {
+    return "$.data.indicatif.passeCompose";
+  } else if (tenses == "au futur simple") {
+    return "$.data.indicatif.futurSimple";
+  } else if (tenses == "au présent") {
+    return "$.data.indicatif.present";
+  } else if (tenses == "au conditionnel présent") {
+    return "$.data.conditionnel.present";
+  }
 }
 
-function getPronounLine(pronoun)
-{
-  if (pronoun == "je")
-  {return 0}
-  else if (pronoun == "tu")
-  {return 1}
-  else if (pronoun == "il" || pronoun == "elle" || pronoun == "on")
-  {return 2}
-  else if (pronoun == "vous")
-  {return 3}
-  else if (pronoun == "nous")
-  {return 4}
-  else if (pronoun == "ils" || pronoun == "elles")
-  {return 5}
+function getPronounLine(pronoun) {
+  if (pronoun == "je") {
+    return 0;
+  } else if (pronoun == "tu") {
+    return 1;
+  } else if (pronoun == "il" || pronoun == "elle" || pronoun == "on") {
+    return 2;
+  } else if (pronoun == "vous") {
+    return 3;
+  } else if (pronoun == "nous") {
+    return 4;
+  } else if (pronoun == "ils" || pronoun == "elles") {
+    return 5;
+  }
 }
 
 export default Play;
