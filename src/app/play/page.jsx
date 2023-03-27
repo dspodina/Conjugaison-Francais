@@ -3,7 +3,7 @@
 import CheckResultButton from "@/components/Buttons/CheckResultBtn.jsx";
 import NewWordBtn from "@/components/Buttons/NewWordBtn.jsx";
 import FinishBtn from "@/components/Buttons/FinishBtn.jsx";
-import GameInput from "src/components/GameInput.jsx";
+import GameInput from "@/components/GameInput.jsx";
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import jp from "jsonpath";
@@ -17,6 +17,7 @@ const Play = () => {
   let [tenses, setTenses] = useState("");
   let [playResult, setPlayResult] = useState("");
   let testvariable;
+  let pronounLine;
   useEffect(() => {
     setVerb(randomVerb());
     setPronoun(randomPronoun());
@@ -232,7 +233,7 @@ const Play = () => {
     axios
       .request(options)
       .then(function (response) {
-        //console.log(response.data);
+        console.log(response.data);
         // get the output array for a specific Tense
         let tenseArray = jp.query(response.data, getJsonPath(tenses));
         console.log(tenseArray[0]);
@@ -240,9 +241,9 @@ const Play = () => {
         let objectToArray = Object.entries(tenseArray[0]);
         console.log(objectToArray);
         // get the output line for a specific Pronoun
-        let pronounLine = objectToArray[getPronounLine(pronoun)][1];
+        pronounLine = objectToArray[getPronounLine(pronoun)][1];
         console.log(pronounLine);
-        //compare input with the dictionry
+        // compare input with the dictionary
         let playResult = pronounLine.search(inputValue);
         console.log(playResult);
         if (playResult >= 0) {
@@ -306,21 +307,21 @@ const Play = () => {
   );
 };
 
-function getJsonPath(tenses) {
-  if (tenses == "à l'imparfait") {
+const getJsonPath = (tenses) => {
+  if (tenses === "à l'imparfait") {
     return "$.data.indicatif.imparfait";
-  } else if (tenses == "au passé composé") {
+  } else if (tenses === "au passé composé") {
     return "$.data.indicatif.passeCompose";
-  } else if (tenses == "au futur simple") {
+  } else if (tenses === "au futur simple") {
     return "$.data.indicatif.futurSimple";
-  } else if (tenses == "au présent") {
+  } else if (tenses === "au présent") {
     return "$.data.indicatif.present";
-  } else if (tenses == "au conditionnel présent") {
+  } else if (tenses === "au conditionnel présent") {
     return "$.data.conditionnel.present";
   }
 }
 
-function getPronounLine(pronoun) {
+const getPronounLine = (pronoun) => {
   if (pronoun == "je") {
     return 0;
   } else if (pronoun == "tu") {
