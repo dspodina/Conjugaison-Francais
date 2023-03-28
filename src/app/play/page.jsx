@@ -6,15 +6,19 @@ import FinishBtn from "@/components/Buttons/FinishBtn.jsx";
 import GameInput from "@/components/GameInput.jsx";
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-// import jp from "jsonpath";
+import jp from "jsonpath";
 import wellDone from "public/wellDone.svg";
 import tryAgain from "public/tryAgain.svg";
 import Image from "next/image";
+import {randomVerb} from "src/app/utilities.js"
+import {randomPronoun} from "src/app/utilities.js"
+import {randomTenses} from "src/app/utilities.js"
+import { useGlobalContext } from "../context";
 
 const Play = () => {
-  let [verb, setVerb] = useState("");
-  let [pronoun, setPronoun] = useState("");
-  let [tenses, setTenses] = useState("");
+  let {verb, setVerb} = useGlobalContext()
+  let {pronoun, setPronoun} = useGlobalContext()
+  let {tenses, setTenses} = useGlobalContext()
   let [playResult, setPlayResult] = useState("");
   let testvariable;
   let pronounLine;
@@ -23,198 +27,6 @@ const Play = () => {
     setPronoun(randomPronoun());
     setTenses(randomTenses());
   }, []);
-  const randomVerb = () => {
-    const verbs = [
-      "être",
-      "pleurer",
-      "avoir",
-      "aller",
-      "faire",
-      "enregistrer",
-      "pêcher",
-      "dire",
-      "tousser",
-      "rougir",
-      "revêtir",
-      "remettre",
-      "frapper",
-      "répandre",
-      "presser",
-      "refléter",
-      "gérer",
-      "rejeter",
-      "mélanger",
-      "reconduire",
-      "méprendre",
-      "jurer",
-      "soutenir",
-      "secouer",
-      "ressentir",
-      "louer",
-      "nommer",
-      "informer",
-      "geindre",
-      "féliciter",
-      "éviter",
-      "endormir",
-      "emprunter",
-      "dépenser",
-      "conseiller",
-      "confondre",
-      "cheminer",
-      "causer",
-      "blaguer",
-      "augmenter",
-      "arracher",
-      "annoncer",
-      "admirer",
-      "adjoindre",
-      "acquérir",
-      "accueillir",
-      "accrocher",
-      "accourir",
-      "accorder",
-      "acclamer",
-      "tomber",
-      "souhaiter",
-      "visiter",
-      "remplacer",
-      "reconnaître",
-      "noter",
-      "enseigner",
-      "effacer",
-      "décrire",
-      "cuire",
-      "coûter",
-      "goûter",
-      "ajouter",
-      "allumer",
-      "éteindre",
-      "traduire",
-      "épeler",
-      "laver",
-      "annuler",
-      "permettre",
-      "oser",
-      "accompagner",
-      "signer",
-      "répéter",
-      "remercier",
-      "arranger",
-      "inviter",
-      "crier",
-      "craindre",
-      "approcher",
-      "épouser",
-      "supposer",
-      "maintenir",
-      "détester",
-      "danser",
-      "embrasser",
-      "pardonner",
-      "rire",
-      "intéresser",
-      "amuser",
-      "terminer",
-      "refuser",
-      "accepter",
-      "présenter",
-      "chanter",
-      "conduire",
-      "choisir",
-      "préparer",
-      "offrir",
-      "préférer",
-      "coucher",
-      "utiliser",
-      "recevoir",
-      "adorer",
-      "agir",
-      "expliquer",
-      "vendre",
-      "décider",
-      "apporter",
-      "bouger",
-      "compter",
-      "valoir",
-      "fermer",
-      "rencontrer",
-      "sauver",
-      "répondre",
-      "raconter",
-      "pouvoir",
-      "continuer",
-      "toucher",
-      "emmener",
-      "quitter",
-      "monter",
-      "lire",
-      "rappeler",
-      "acheter",
-      "gagner",
-      "retrouver",
-      "écrire",
-      "servir",
-      "prier",
-      "porter",
-      "asseoir",
-      "garder",
-      "boire",
-      "apprendre",
-      "envoyer",
-      "marcher",
-      "occuper",
-      "dormir",
-      "excuser",
-      "changer",
-      "ouvrir",
-      "tirer",
-      "payer",
-      "commencer",
-      "devenir",
-      "entrer",
-      "manger",
-      "travailler",
-      "oublier",
-      "tenir",
-      "rendre",
-      "vivre",
-      "rentrer",
-      "sentir",
-      "perdre",
-      "finir",
-      "jouer",
-      "revenir",
-    ];
-    const randomIndex = Math.floor(Math.random() * verbs.length);
-    return verbs[randomIndex];
-  };
-  const randomPronoun = () => {
-    const pronoun = [
-      "je",
-      "tu",
-      "il",
-      "elle",
-      "on",
-      "vous",
-      "nous",
-      "ils",
-      "elles",
-    ];
-    const randomIndex = Math.floor(Math.random() * pronoun.length);
-    return pronoun[randomIndex];
-  };
-  const randomTenses = () => {
-    const tenses = [
-      "à l'imparfait",
-      "au passé composé",
-      "au futur simple",
-      "au présent",
-      "au conditionnel présent",
-    ];
-    const randomIndex = Math.floor(Math.random() * tenses.length);
-    return tenses[randomIndex];
-  };
 
   const [inputValue, setInputValue] = useState("");
 
@@ -247,9 +59,9 @@ const Play = () => {
         let playResult = pronounLine.search(inputValue);
         console.log(playResult);
         if (playResult >= 0) {
-          setPlayResult("Well done!");
+          setPlayResult("Bravo!");
         } else {
-          setPlayResult("Try again!");
+          setPlayResult("Oops! Wrong answer!");
         }
       })
       .catch(function (error) {
@@ -257,11 +69,11 @@ const Play = () => {
       });
   };
 
-  if (playResult === "Try again!") {
+  if (playResult === "Oops! Wrong answer!") {
     testvariable = (
       <Image src={tryAgain} alt="" className="w-[25px] mt-5 mr-1" />
     );
-  } else if (playResult === "Well done!") {
+  } else if (playResult === "Bravo!") {
     testvariable = (
       <Image src={wellDone} alt="" className="w-[25px] mt-5 mr-1" />
     );
@@ -280,7 +92,7 @@ const Play = () => {
   return (
     <div>
       <div>
-        <h2 className="text-4xl flex justify-center mt-12 font-caveat">
+        <h2 className="text-4xl flex justify-center mt-4 font-caveat">
           Let's learn the verbs!
         </h2>
       </div>

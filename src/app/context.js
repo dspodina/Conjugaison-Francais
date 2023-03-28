@@ -7,8 +7,11 @@ export let useGlobalContext = () => useContext(context)
 
 export default function ContextProvider ({children}) {
     let [data, setData] = useState(null)
+    let [verb, setVerb] = useState("");
+    let [pronoun, setPronoun] = useState("");
+    let [tenses, setTenses] = useState("");
     return(
-        <context.Provider value={{data, setData}}>{children}</context.Provider> 
+        <context.Provider value={{data, setData, verb, setVerb, pronoun, setPronoun, tenses, setTenses}}>{children}</context.Provider> 
     )
 
 }

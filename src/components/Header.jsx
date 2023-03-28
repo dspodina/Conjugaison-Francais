@@ -18,29 +18,22 @@ const Header = () => {
   };
 
   const handleButtonClick = () => {
-    axios
-      .request(options)
-      .then(function (response) {
-        setData(response.data);
-      })
-      .catch(function (error) {
-        console.error(error);
-      });
+    fetch(`https://french-conjugaison.p.rapidapi.com/conjugate/${inputValue}`, options)
+    .then(response => response.json())
+    .then(response => setData(response.data))
+    .catch(err => console.error(err));
     console.log(inputValue);
   };
 
-  // const options = {
-  //   method: 'GET',
-  //   headers: {
-  //     'X-RapidAPI-Key': 'c6b0447072msh0ad8b9499e5a62dp19a111jsn6cbc311b56dc',
-  //     'X-RapidAPI-Host': 'french-conjugaison.p.rapidapi.com'
-  //   }
-  // };
+  const options = {
+    method: 'GET',
+    headers: {
+      'X-RapidAPI-Key': 'c6b0447072msh0ad8b9499e5a62dp19a111jsn6cbc311b56dc',
+      'X-RapidAPI-Host': 'french-conjugaison.p.rapidapi.com'
+    }
+  };
   
-  // fetch('https://french-conjugaison.p.rapidapi.com/conjugate/parler', options)
-  //   .then(response => response.json())
-  //   .then(response => console.log(response))
-  //   .catch(err => console.error(err));
+ 
 
   return (
     <div className="container mx-auto flex flex-col lg:flex-row mb-16 lg:mb-0 h-[200px] justify-between items-center">

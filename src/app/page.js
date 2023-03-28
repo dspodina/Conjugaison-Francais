@@ -31,11 +31,11 @@ export default function Home() {
         <h2 className="text-4xl font-caveat my-16">Let's play!</h2>
         <LetsPlayButton />
       </div>
-      <div className="flex flex-col">
+      <div className="flex flex-col justify-around">
         <div className="text-4xl flex justify-center mt-16 font-caveat">
           <h2>Tips how to learn French</h2>
         </div>
-        <div className="py-24 flex justify-around">
+        <div className="py-24">
           <div className="grid grid-cols-2 lg:grid-cols-3">
             <Image src={learnTips2} alt="" className="w-[300px]" />
             <Image src={learnTips3} alt="" className="w-[300px]" />
