@@ -6,7 +6,6 @@ import Logo from "public/logo.svg";
 import SearchInput from "src/components/SearchInput.jsx"
 import SearchResultButton from "@/components/Buttons/SearchResultBtn.jsx";
 import React, { useState } from "react";
-import axios from "axios";
 import { useGlobalContext } from "@/app/context";
 
 
@@ -17,7 +16,10 @@ const Header = () => {
     setInputValue(event.target.value);
   };
 
+  
+
   const handleButtonClick = () => {
+    setInputValue("");
     fetch(`https://french-conjugaison.p.rapidapi.com/conjugate/${inputValue}`, options)
     .then(response => response.json())
     .then(response => setData(response.data))
@@ -33,8 +35,6 @@ const Header = () => {
     }
   };
   
- 
-
   return (
     <div className="container mx-auto flex flex-col lg:flex-row mb-16 lg:mb-0 h-[200px] justify-between items-center">
       <div className="">
