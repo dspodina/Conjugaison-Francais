@@ -19,6 +19,7 @@ const Play = () => {
   let {verb, setVerb} = useGlobalContext()
   let {pronoun, setPronoun} = useGlobalContext()
   let {tenses, setTenses} = useGlobalContext()
+  // let { data } = useGlobalContext();
   let [playResult, setPlayResult] = useState("");
   let testvariable;
   let pronounLine;
@@ -58,7 +59,7 @@ const Play = () => {
         // compare input with the dictionary
         let playResult = pronounLine.search(inputValue);
         console.log(playResult);
-        if (playResult >= 0) {
+        if (playResult > 0) {
           setPlayResult("Bravo!");
         } else {
           setPlayResult("Oops! Wrong answer!");
@@ -92,7 +93,7 @@ const Play = () => {
   return (
     <div>
       <div>
-        <h2 className="text-4xl flex justify-center mt-4 font-caveat">
+        <h2 className="text-4xl flex justify-center mt-12 font-caveat">
           Let's learn the verbs!
         </h2>
       </div>

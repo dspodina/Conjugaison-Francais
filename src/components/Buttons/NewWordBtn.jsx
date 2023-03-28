@@ -7,7 +7,7 @@ import {randomTenses} from "src/app/utilities.js"
 import { useGlobalContext } from "@/app/context";
 
 
-const TensesNewWord = props => {
+const TensesNewWord = () => {
   let {setVerb, setPronoun, setTenses} = useGlobalContext()
   const handleUpdate = () => {
     setVerb(randomVerb())
