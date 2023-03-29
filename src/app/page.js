@@ -1,11 +1,4 @@
 import { Inter } from "@next/font/google";
-// import Image from "next/image";
-// import learnTips1 from "public/1.svg";
-// import learnTips2 from "public/2.svg";
-// import learnTips3 from "public/3.svg";
-// import learnTips4 from "public/4.svg";
-// import learnTips5 from "public/5.svg";
-// import learnTips6 from "public/6.svg";
 import LetsPlayButton from "@/components/Buttons/LetsPlayBtn.jsx";
 
 const inter = Inter({ subsets: ["latin"] });
@@ -30,24 +23,8 @@ export default function Home() {
         </div>
       </div>
       <div className="flex flex-col items-center mb-24">
-        {/* <h2 className="text-4xl font-caveat my-12">Let's play!</h2> */}
         <LetsPlayButton />
       </div>
-      {/* <div className="flex flex-col justify-around">
-        <div className="text-4xl flex justify-center mt-16 font-caveat">
-          <h2>Tips how to learn French</h2>
-        </div>
-        <div className="py-24">
-          <div className="grid grid-cols-2 lg:grid-cols-3">
-            <Image src={learnTips2} alt="" className="w-[300px]" />
-            <Image src={learnTips3} alt="" className="w-[300px]" />
-            <Image src={learnTips4} alt="" className="w-[300px]" />
-            <Image src={learnTips1} alt="" className="w-[300px]" />
-            <Image src={learnTips5} alt="" className="w-[300px]" />
-            <Image src={learnTips6} alt="" className="w-[300px]" />
-          </div>
-        </div>
-      </div> */}
     </div>
   );
 }
