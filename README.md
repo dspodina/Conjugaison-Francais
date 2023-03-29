@@ -1,4 +1,8 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+Bonjour and welcome to Pa-ra-pa Parler! 
+
+As junior WebDeveloper and french language enthusiast I created an app for practicing French verb conjugation fun and easy. An interface is user-friendly and allows you to select the verb and tense you want to practice, with examples and hints to guide you along the way. I'm constantly updating and improving my project to make language learning more accessible and enjoyable.
+
+Project based on React, API, NEXTJS@13 and styted by Tailwind. 
 
 ## Getting Started
 
