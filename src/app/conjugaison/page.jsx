@@ -8,7 +8,7 @@ const Conjugaison = () => {
     data && (
       <div className="container mx-auto mb-24">
         <h2 className="text-4xl flex my-12 font-caveat">
-          Conjugaison du verbe: <span className="uppercase">{" "} {data && data.word}</span>
+          Conjugaison du verbe: <span className="uppercase ml-4 flex items-center">{data && data.word}</span>
         </h2>
         <div className="bg-beige flex flex-row justify-around py-4 mb-12 uppercase text-lg rounded-lg">
         <p>Infinitive: {data.infinitive.present}</p>

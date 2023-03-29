@@ -6,7 +6,7 @@ import FinishBtn from "@/components/Buttons/FinishBtn.jsx";
 import GameInput from "@/components/GameInput.jsx";
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-// import jp from "jsonpath";
+//import jp from "jsonpath";
 import wellDone from "public/wellDone.svg";
 import tryAgain from "public/tryAgain.svg";
 import Image from "next/image";
@@ -47,6 +47,7 @@ const Play = () => {
       .then(function (response) {
         console.log(response.data);
         // get the output array for a specific Tense
+        let jp = require('jsonpath');
         let tenseArray = jp.query(response.data, getJsonPath(tenses));
         console.log(tenseArray[0]);
         // convert object into Array
