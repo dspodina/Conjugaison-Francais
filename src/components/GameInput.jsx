@@ -9,7 +9,7 @@ export default function GameInput({value, onChange}) {
         onChange={onChange}
         type="text"
         placeholder="..."
-        className="w-9/12 rounded-l-lg pl-2 min-h-[40px] min-w-[250px]"
+        className="w-9/12 rounded-l-lg pl-2 min-h-[40px] min-w-[200px] lg:min-w-[250px]"
       />
     </div>
   );

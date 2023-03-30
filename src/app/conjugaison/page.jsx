@@ -20,7 +20,7 @@ const Conjugaison = () => {
             <p>{data.wordConjugateWithWhichVerb}</p>
           </div>
           <div>
-            <h3 className="mt-16 mb-4 uppercase">Indicatif</h3>
+            <h3 className="mt-16 mb-4 uppercase text-xl">Indicatif</h3>
             <div className="grid gap-4 md:gap-10 grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
               <div className="bg-white p-6 max-w-sm rounded-lg overflow-hidden shadow-lg">
                 <h4 className="mb-4">Présent</h4>
@@ -95,7 +95,7 @@ const Conjugaison = () => {
                 <p> {data.indicatif.futurAnterieur.indicatifFuturAnterieurThey}</p>
               </div>
             </div>
-            <h3 className="mt-16 mb-4 uppercase">Subjonctif</h3>
+            <h3 className="mt-16 mb-4 uppercase text-xl">Subjonctif</h3>
             <div className="grid gap-4 md:gap-10 grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
               <div className="bg-white p-6 max-w-sm rounded-lg overflow-hidden shadow-lg">
                 <h4 className="mb-4">Présent</h4>
@@ -135,7 +135,7 @@ const Conjugaison = () => {
               </div>
             </div>
           </div>
-          <h3 className="mt-16 mb-4 uppercase">Conditionnel</h3>
+          <h3 className="mt-16 mb-4 uppercase text-xl">Conditionnel</h3>
           <div className="grid gap-4 md:gap-10 grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
             <div className="bg-white p-6 max-w-sm rounded-lg overflow-hidden shadow-lg">
               <h4 className="mb-4">Présent</h4>
@@ -165,7 +165,7 @@ const Conjugaison = () => {
               <p>{data.conditionnel.passe2eForme.conditionnelPasse2eFormeThey}</p>
             </div>
           </div>
-          <h3 className="mt-16 mb-4 uppercase">Imperatif</h3>
+          <h3 className="mt-16 mb-4 uppercase text-xl">Imperatif</h3>
           <div className="grid gap-4 md:gap-10 grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
             <div className="bg-white p-6 max-w-sm rounded-lg overflow-hidden shadow-lg">
               <h4 className="mb-4">Présent</h4>

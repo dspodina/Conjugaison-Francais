@@ -136,7 +136,7 @@ const Play = () => {
       </h3>
       <div className="min-h-[40px] mt-4">
         <div className="flex flex-row justify-center">
-          <p className="text-2xl font-kalam mr-4 capitalize">{pronoun}</p>
+          <p className="text-2xl font-alkatra mr-4 capitalize">{pronoun}</p>
           <GameInput value={inputValue} onChange={handleInputChange} />
           <CheckResultButton handleSubmit={handleButtonClick} />
         </div>
