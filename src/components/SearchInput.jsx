@@ -8,7 +8,7 @@ export default function SearchInput({value, onChange}) {
         value={value}
         onChange={onChange}
         type="text"
-        placeholder="Conjugaison du verbe"
+        placeholder="Conjugaison"
         className="rounded-l-lg pl-2 min-h-[40px] min-w-[80px] lg:min-w-[200px]"
       />
     </div>

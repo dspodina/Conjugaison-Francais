@@ -22,6 +22,9 @@ const Play = () => {
   let [playResult, setPlayResult] = useState("");
   let testvariable;
   let pronounLine;
+  const wrongAnswers = ["C'est pas vrai!", "I know you can do better!", "Come on! You can do it!", "Phew, you were so close!", "Oops!", "Wrong answer!", "Don't give up!", "Maybe French isn't for you?", "Think better!", "Stay calm and keep learning!", "No, no, no!"];
+  const rightAnswers = ["Done", "Proud of you!", "Amazing!", "You rock!", "Oops! You were right again!", "Keep going!", "You're on a roll today!", "Yes, yes, yes!", "You know it!", "Great job!", "Hope you didn't look at the answer!"];
+
   useEffect(() => {
     setVerb(randomVerb());
     setPronoun(randomPronoun());
@@ -35,13 +38,11 @@ const Play = () => {
   };
 
   const randomWrongAnswer = () => {
-    const wrongAnswers = ["C'est pas vrai!", "I know you can do better!", "Come on! You can do it!", "Phew, you were so close!", "Oops!", "Wrong answer!", "Don't give up!", "Maybe French isn't for you?", "Think better!", "Stay calm and keep learning!", "No, no, no!"];
     const randomIndex = Math.floor(Math.random() * wrongAnswers.length);
     return wrongAnswers[randomIndex];
   };
 
   const randomRightAnswer = () => {
-    const rightAnswers = ["Done", "Proud of you!", "Amazing!", "You rock!", "Oops! You were right again!", "Keep going!", "You're on a roll today!", "Yes, yes, yes!", "You know it!", "Great job!", "Hope you didn't look at the answer!"];
     const randomIndex = Math.floor(Math.random() * rightAnswers.length);
     return rightAnswers[randomIndex];
   };
@@ -82,11 +83,11 @@ const Play = () => {
       });
   };
 
-  if (playResult === (randomWrongAnswer())) {
+  if (wrongAnswers.includes(playResult)) {
     testvariable = (
       <Image src={tryAgain} alt="" className="w-[25px] mt-5 mr-1" />
     );
-  } else if (playResult === "Bravo!") {
+  } else if (rightAnswers.includes(playResult)) {
     testvariable = (
       <Image src={wellDone} alt="" className="w-[25px] mt-5 mr-1" />
     );

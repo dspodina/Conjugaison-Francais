@@ -11,7 +11,7 @@ const Conjugaison = () => {
         <h2 className="text-3xl flex my-4 lg:my-16 font-caveat">
           Conjugaison du verbe: <span className="uppercase ml-4 flex items-center">{data && data.word}</span>
         </h2>
-        <div className="bg-beige flex flex-col lg:flex-row justify-around py-4 px-4 uppercase text-lg rounded-lg">
+        <div className="bg-beige flex flex-col lg:flex-row justify-between py-4 px-4 uppercase text-lg rounded-lg">
         <p>Infinitive: {data.infinitive.present}</p>
         <p>Le {data.wordVerbGroup}</p>
         <p>{data.wordConjugateWithWhichVerb}</p>
