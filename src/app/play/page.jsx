@@ -105,15 +105,13 @@ const Play = () => {
   return (
       <div>
         <div>
-          <h2 className="text-3xl flex justify-center mt-12 font-caveat">
+          <h2 className="flex justify-center mt-12">
             Let's learn the verbs!
           </h2>
         </div>
-        <div className="text-2xl flex justify-center mt-16">
-          <h3>
-            <span className="text-smokypink capitalize">{verb}</span> {tenses}{" "}
+          <h3 className="flex justify-center mt-16">
+            <span className="text-smokypink capitalize mr-2">{verb}</span>{tenses}
           </h3>
-        </div>
         <div className="min-h-[40px] mt-4">
           <div className="flex flex-row justify-center">
             <p className="text-2xl font-caveat mr-4 capitalize">{pronoun}</p>
@@ -122,7 +120,7 @@ const Play = () => {
           </div>
           <div className="flex flex-row justify-center">
             <p>{testvariable}</p>
-            <p className="text-xl mt-4">{playResult}</p>
+            <p className="text-lg mt-4">{playResult}</p>
           </div>
         </div>
         <div className="flex flex-row justify-center mt-8 mb-24">

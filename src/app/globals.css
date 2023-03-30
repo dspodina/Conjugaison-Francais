@@ -12,8 +12,18 @@ body {
   letter-spacing: 0.03em;
 }
 
-.h4 {
-  font-size: 36px;
+h2 {
+  font-family: 'Caveat', cursive;
+  font-weight: 600;
+  font-size: 30px;
+}
+
+h3 {
+  font-size: 22px;
+}
+
+h4 {
+  font-size: 20px;
 }
 
 body {

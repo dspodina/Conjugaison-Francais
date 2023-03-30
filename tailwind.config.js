@@ -28,7 +28,7 @@ module.exports = {
       fontFamily: {
         sans: ["var(--font-caveat)"],
         mono: ["var(--font-poppins)"],
-        caveat: ["caveat", "cursive"],
+        caveat: ["Caveat", "cursive"],
       },
     },
   },
