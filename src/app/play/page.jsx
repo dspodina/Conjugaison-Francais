@@ -6,7 +6,6 @@ import FinishBtn from "@/components/Buttons/FinishBtn.jsx";
 import GameInput from "@/components/GameInput.jsx";
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-// import jp from "jsonpath";
 import wellDone from "public/wellDone.svg";
 import tryAgain from "public/tryAgain.svg";
 import Image from "next/image";
@@ -22,8 +21,32 @@ const Play = () => {
   let [playResult, setPlayResult] = useState("");
   let testvariable;
   let pronounLine;
-  const wrongAnswers = ["C'est pas vrai!", "I know you can do better!", "Come on! You can do it!", "Phew, you were so close!", "Oops!", "Wrong answer!", "Don't give up!", "Maybe French isn't for you?", "Think better!", "Stay calm and keep learning!", "No, no, no!"];
-  const rightAnswers = ["Done", "Proud of you!", "Amazing!", "You rock!", "Oops! You were right again!", "Keep going!", "You're on a roll today!", "Yes, yes, yes!", "You know it!", "Great job!", "Hope you didn't look at the answer!"];
+  const wrongAnswers = [
+    "C'est pas vrai!",
+    "I know you can do better!",
+    "Come on! You can do it!",
+    "Phew, you were so close!",
+    "Oops!",
+    "Wrong answer!",
+    "Don't give up!",
+    "Maybe French isn't for you?",
+    "Think better!",
+    "Stay calm and keep learning!",
+    "No, no, no!",
+  ];
+  const rightAnswers = [
+    "Done",
+    "Proud of you!",
+    "Amazing!",
+    "You rock!",
+    "Oops! You were right again!",
+    "Keep going!",
+    "You're on a roll today!",
+    "Yes, yes, yes!",
+    "You know it!",
+    "Great job!",
+    "Hope you didn't look at the answer!",
+  ];
 
   useEffect(() => {
     setVerb(randomVerb());
@@ -60,7 +83,7 @@ const Play = () => {
       .then(function (response) {
         console.log(response.data);
         // get the output array for a specific Tense
-        let jp = require('jsonpath');
+        let jp = require("jsonpath");
         let tenseArray = jp.query(response.data, getJsonPath(tenses));
         console.log(tenseArray[0]);
         // convert object into Array
@@ -103,31 +126,30 @@ const Play = () => {
   };
 
   return (
+    <div>
       <div>
-        <div>
-          <h2 className="flex justify-center mt-12">
-            Let's learn the verbs!
-          </h2>
+        <h2 className="flex justify-center mt-12 font-alkatra">Let's learn the verbs!</h2>
+      </div>
+      <h3 className="flex justify-center mt-16">
+        <span className="text-smokypink capitalize mr-2">{verb}</span>
+        {tenses}
+      </h3>
+      <div className="min-h-[40px] mt-4">
+        <div className="flex flex-row justify-center">
+          <p className="text-2xl font-kalam mr-4 capitalize">{pronoun}</p>
+          <GameInput value={inputValue} onChange={handleInputChange} />
+          <CheckResultButton handleSubmit={handleButtonClick} />
         </div>
-          <h3 className="flex justify-center mt-16">
-            <span className="text-smokypink capitalize mr-2">{verb}</span>{tenses}
-          </h3>
-        <div className="min-h-[40px] mt-4">
-          <div className="flex flex-row justify-center">
-            <p className="text-2xl font-caveat mr-4 capitalize">{pronoun}</p>
-            <GameInput value={inputValue} onChange={handleInputChange} />
-            <CheckResultButton handleSubmit={handleButtonClick} />
-          </div>
-          <div className="flex flex-row justify-center">
-            <p>{testvariable}</p>
-            <p className="text-lg mt-4">{playResult}</p>
-          </div>
-        </div>
-        <div className="flex flex-row justify-center mt-8 mb-24">
-          <NewWordBtn />
-          <FinishBtn />
+        <div className="flex flex-row justify-center">
+          <p>{testvariable}</p>
+          <p className="text-lg mt-4">{playResult}</p>
         </div>
       </div>
+      <div className="flex flex-row justify-center mt-8 mb-24">
+        <NewWordBtn />
+        <FinishBtn />
+      </div>
+    </div>
   );
 };
 
