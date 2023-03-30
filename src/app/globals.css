@@ -9,6 +9,7 @@ body {
   overflow-x: hidden;
   background-color: #F1EBDC;
   font-size: 16px;
+  letter-spacing: 0.04em;
 }
 
 .h4 {

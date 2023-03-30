@@ -6,18 +6,19 @@ const Conjugaison = () => {
   let { data } = useGlobalContext();
   return (
     data && (
-      <div className="container mx-auto mb-24">
-        <h2 className="text-4xl flex my-12 font-caveat">
+      <div className="container mx-auto mb-36">
+        <div className="mx-4">
+        <h2 className="text-3xl flex my-4 lg:my-16 font-caveat">
           Conjugaison du verbe: <span className="uppercase ml-4 flex items-center">{data && data.word}</span>
         </h2>
-        <div className="bg-beige flex flex-row justify-around py-4 mb-12 uppercase text-lg rounded-lg">
+        <div className="bg-beige flex flex-col lg:flex-row justify-around py-4 px-4 uppercase text-lg rounded-lg">
         <p>Infinitive: {data.infinitive.present}</p>
         <p>Le {data.wordVerbGroup}</p>
         <p>{data.wordConjugateWithWhichVerb}</p>
         </div>
         <div>
           <h3 className="text-xl mt-16 mb-4 uppercase">Indicatif</h3>
-          <div className="grid gap-10 rid-cols-3 md:grid-cols-4 py-2">
+          <div className="grid gap-4 md:gap-10 grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
             <div className="bg-white p-6 max-w-sm rounded-lg overflow-hidden shadow-lg">
               <h4 className="text-xl mb-4">Présent</h4>
               <p>{data.indicatif.present.indicatifPresentI}</p>
@@ -92,7 +93,7 @@ const Conjugaison = () => {
             </div>
           </div>
           <h3 className="text-xl mt-16 mb-4 uppercase">Subjonctif</h3>
-          <div className="grid gap-8 grid-cols-4 py-2">
+          <div className="grid gap-4 md:gap-10 grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
             <div className="bg-white p-6 max-w-sm rounded-lg overflow-hidden shadow-lg">
               <h4 className="text-xl mb-4">Présent</h4>
               <p>{data.subjonctif.present.subjonctifPresentI}</p>
@@ -129,9 +130,10 @@ const Conjugaison = () => {
               <p>{data.subjonctif.plusQueParfait.subjonctifPlusQueParfaitYouAll}</p>
               <p>{data.subjonctif.plusQueParfait.subjonctifPlusQueParfaitThey}</p>
             </div>
+            </div>
           </div>
           <h3 className="text-xl mt-16 mb-4 uppercase">Conditionnel</h3>
-          <div className="grid gap-8 grid-cols-4 py-2">
+          <div className="grid gap-4 md:gap-10 grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
           <div className="bg-white p-6 max-w-sm rounded-lg overflow-hidden shadow-lg">
             <h4 className="text-xl mb-4">Présent</h4>
             <p>{data.conditionnel.present.conditionnelPresentI}</p>
@@ -161,7 +163,7 @@ const Conjugaison = () => {
           </div>
           </div>
           <h3 className="text-xl mt-16 mb-4 uppercase">Imperatif</h3>
-          <div className="grid gap-8 grid-cols-4 py-2">
+          <div className="grid gap-4 md:gap-10 grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
           <div className="bg-white p-6 max-w-sm rounded-lg overflow-hidden shadow-lg">
             <h4 className="text-xl mb-4">Présent</h4>
             <p>{data.imperatif.present.imperatifPresentFirst}</p>

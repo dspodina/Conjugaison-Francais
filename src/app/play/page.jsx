@@ -34,6 +34,18 @@ const Play = () => {
     setInputValue(event.target.value);
   };
 
+  const randomWrongAnswer = () => {
+    const wrongAnswers = ["C'est pas vrai!", "I know you can do better!", "Come on! You can do it!", "Phew, you were so close!", "Oops!", "Wrong answer!", "Don't give up!", "Maybe French isn't for you?", "Think better!", "Stay calm and keep learning!", "No, no, no!"];
+    const randomIndex = Math.floor(Math.random() * wrongAnswers.length);
+    return wrongAnswers[randomIndex];
+  };
+
+  const randomRightAnswer = () => {
+    const rightAnswers = ["Done", "Proud of you!", "Amazing!", "You rock!", "Oops! You were right again!", "Keep going!", "You're on a roll today!", "Yes, yes, yes!", "You know it!", "Great job!", "Hope you didn't look at the answer!"];
+    const randomIndex = Math.floor(Math.random() * rightAnswers.length);
+    return rightAnswers[randomIndex];
+  };
+
   const handleButtonClick = () => {
     setInputValue("");
     setPlayResult("");
@@ -60,9 +72,9 @@ const Play = () => {
         let playResult = pronounLine.search(inputValue);
         console.log(playResult);
         if (playResult > 0) {
-          setPlayResult("Bravo!");
+          setPlayResult(randomRightAnswer());
         } else {
-          setPlayResult("Oops! Wrong answer!");
+          setPlayResult(randomWrongAnswer());
         }
       })
       .catch(function (error) {
@@ -70,7 +82,7 @@ const Play = () => {
       });
   };
 
-  if (playResult === "Oops! Wrong answer!") {
+  if (playResult === (randomWrongAnswer())) {
     testvariable = (
       <Image src={tryAgain} alt="" className="w-[25px] mt-5 mr-1" />
     );
@@ -92,7 +104,7 @@ const Play = () => {
   return (
       <div>
         <div>
-          <h2 className="text-4xl flex justify-center mt-12 font-caveat">
+          <h2 className="text-3xl flex justify-center mt-12 font-caveat">
             Let's learn the verbs!
           </h2>
         </div>

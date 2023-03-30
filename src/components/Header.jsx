@@ -36,7 +36,7 @@ const Header = () => {
   };
   
   return (
-    <div className="container mx-auto flex flex-col lg:flex-row mb-16 lg:mb-0 h-[200px] justify-between items-center">
+    <div className="container mx-auto flex lg:flex-row mb-16 lg:mb-0 h-[150px] justify-between items-center">
       <div className="">
         <Link href="/">
           <Image
@@ -46,7 +46,7 @@ const Header = () => {
           />
         </Link>
       </div>
-      <div className="flex flex-row justify-end">
+      <div className="flex flex-row justify-end mx-4">
         <SearchInput value={inputValue} onChange={handleInputChange} />
         <SearchResultButton handleSubmit={handleButtonClick} />
       </div>
