@@ -93,7 +93,7 @@ const Play = () => {
         pronounLine = objectToArray[getPronounLine(pronoun)][1];
         console.log(pronounLine);
         // compare input with the dictionary
-        let playResult = pronounLine.search(inputValue);
+        let playResult = pronounLine.search(inputValue.toLocaleLowerCase());
         console.log(playResult);
         if (playResult > 0) {
           setPlayResult(randomRightAnswer());
@@ -125,6 +125,30 @@ const Play = () => {
     },
   };
 
+  const handleHint = () => {
+    setInputValue("");
+    setPlayResult("");
+    axios
+      .request(options)
+      .then(function (response) {
+        // get the output array for a specific Tense
+        let jp = require("jsonpath");
+        let tenseArray = jp.query(response.data, getJsonPath(tenses));
+        // convert object into Array
+        let objectToArray = Object.entries(tenseArray[0]);
+        // get the output line for a specific Pronoun
+        pronounLine = objectToArray[getPronounLine(pronoun)][1];
+        // compare input with the dictionary
+        // let playResult = pronounLine.search(inputValue.toLocaleLowerCase());
+        // pronounLine = "**"+pronounLine[2]+"**"
+        setInputValue(pronounLine)
+        console.log(inputValue)
+      })
+      .catch(function (error) {
+        console.error(error);
+      });
+  };
+
   return (
     <div>
       <div>
@@ -138,7 +162,7 @@ const Play = () => {
         <div className="flex flex-row justify-center">
           <p className="text-2xl font-alkatra mr-4 capitalize">{pronoun}</p>
           <GameInput value={inputValue} onChange={handleInputChange} />
-          <CheckResultButton handleSubmit={handleButtonClick} />
+          <CheckResultButton value={inputValue} handleSubmit={handleButtonClick} />
         </div>
         <div className="flex flex-row justify-center">
           <p>{testvariable}</p>
@@ -147,7 +171,7 @@ const Play = () => {
       </div>
       <div className="flex flex-row justify-center mt-8 mb-24">
         <NewWordBtn />
-        <FinishBtn />
+        <FinishBtn handleInputChange={handleInputChange} onClick={handleHint}/>
       </div>
     </div>
   );
