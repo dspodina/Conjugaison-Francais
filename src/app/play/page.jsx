@@ -2,7 +2,7 @@
 
 import CheckResultButton from "@/components/Buttons/CheckResultBtn.jsx";
 import NewWordBtn from "@/components/Buttons/NewWordBtn.jsx";
-import FinishBtn from "@/components/Buttons/FinishBtn.jsx";
+import FinishBtn from "@/components/Buttons/GetAHint.jsx";
 import GameInput from "@/components/GameInput.jsx";
 import React, { useState, useEffect } from "react";
 import axios from "axios";
@@ -139,8 +139,7 @@ const Play = () => {
         // get the output line for a specific Pronoun
         pronounLine = objectToArray[getPronounLine(pronoun)][1];
         // compare input with the dictionary
-        // let playResult = pronounLine.search(inputValue.toLocaleLowerCase());
-        // pronounLine = "**"+pronounLine[2]+"**"
+        // pronounLine = "**"+pronounLine[]+"**"+pronounLine[3]
         setInputValue(pronounLine)
         console.log(inputValue)
       })
