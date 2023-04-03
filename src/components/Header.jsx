@@ -48,7 +48,8 @@ const Header = () => {
       </div>
       <div className="flex flex-row justify-end mx-4">
         <SearchInput value={inputValue} onChange={handleInputChange} />
-        <SearchResultButton handleSubmit={handleButtonClick} />
+        <SearchResultButton  value={inputValue}
+            handleSubmit={handleButtonClick}/>
       </div>
     </div>
   );

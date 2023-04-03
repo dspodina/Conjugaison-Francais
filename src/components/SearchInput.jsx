@@ -1,10 +1,17 @@
 "use client";
-import React, { useState } from "react";
+import React, { useEffect, useRef } from "react";
 
-export default function SearchInput({value, onChange}) {
+export default function SearchInput({ value, onChange }) {
+  let input = useRef();
+  useEffect(() => {
+    if (!value) {
+      input.current.focus();
+    }
+  }, [value]);
   return (
     <div>
       <input
+        ref={input}
         value={value}
         onChange={onChange}
         type="text"

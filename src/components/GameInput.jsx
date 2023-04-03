@@ -5,7 +5,7 @@ export default function GameInput({ value, onChange }) {
   let input = useRef();
   useEffect(() => {
     if (!value) {
-      input.current.focus()
+      input.current.focus();
     }
   }, [value]);
   return (

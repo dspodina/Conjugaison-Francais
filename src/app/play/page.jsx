@@ -2,7 +2,7 @@
 
 import CheckResultButton from "@/components/Buttons/CheckResultBtn.jsx";
 import NewWordBtn from "@/components/Buttons/NewWordBtn.jsx";
-import FinishBtn from "@/components/Buttons/GetAHint.jsx";
+import GetAHintBtn from "@/components/Buttons/GetAHint.jsx";
 import GameInput from "@/components/GameInput.jsx";
 import React, { useState, useEffect } from "react";
 import axios from "axios";
@@ -126,8 +126,8 @@ const Play = () => {
   };
 
   const handleHint = () => {
-    setInputValue("");
-    setPlayResult("");
+    // setInputValue("");
+    // setPlayResult("");
     axios
       .request(options)
       .then(function (response) {
@@ -141,7 +141,9 @@ const Play = () => {
         // compare input with the dictionary
         // pronounLine = "**"+pronounLine[]+"**"+pronounLine[3]
         setInputValue(pronounLine)
-        console.log(inputValue)
+        setTimeout(() => {
+          setInputValue("");
+        }, 3000);
       })
       .catch(function (error) {
         console.error(error);
@@ -151,17 +153,22 @@ const Play = () => {
   return (
     <div>
       <div>
-        <h2 className="flex justify-center mt-12 font-alkatra">Let's learn the verbs!</h2>
+        <h2 className="flex justify-center mt-12 font-alkatra">
+          Let's learn the verbs!
+        </h2>
       </div>
       <h3 className="flex justify-center mt-16">
-        <span className="text-smokypink capitalize mr-2">{verb}</span>
+        <span className="text-smokypink uppercase mr-2">{verb}</span>
         {tenses}
       </h3>
       <div className="min-h-[40px] mt-4">
         <div className="flex flex-row justify-center">
           <p className="text-2xl font-alkatra mr-4 capitalize">{pronoun}</p>
           <GameInput value={inputValue} onChange={handleInputChange} />
-          <CheckResultButton value={inputValue} handleSubmit={handleButtonClick} />
+          <CheckResultButton
+            value={inputValue}
+            handleSubmit={handleButtonClick}
+          />
         </div>
         <div className="flex flex-row justify-center">
           <p>{testvariable}</p>
@@ -170,7 +177,7 @@ const Play = () => {
       </div>
       <div className="flex flex-row justify-center mt-8 mb-24">
         <NewWordBtn />
-        <FinishBtn handleInputChange={handleInputChange} onClick={handleHint}/>
+        <GetAHintBtn handleInputChange={handleInputChange} onClick={handleHint} />
       </div>
     </div>
   );

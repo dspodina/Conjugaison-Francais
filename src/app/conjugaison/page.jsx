@@ -182,7 +182,8 @@ const Conjugaison = () => {
           </div>
         </div>
       </div>
-    )
+    )  
+    // <h2>The word {data && data.word} not found </h2>
   );
 };
 
