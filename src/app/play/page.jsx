@@ -99,6 +99,9 @@ const Play = () => {
           setPlayResult(randomRightAnswer());
         } else {
           setPlayResult(randomWrongAnswer());
+          setTimeout(() => {
+            setInputValue("");
+          }, 3000);
         }
       })
       .catch(function (error) {
@@ -138,12 +141,28 @@ const Play = () => {
         let objectToArray = Object.entries(tenseArray[0]);
         // get the output line for a specific Pronoun
         pronounLine = objectToArray[getPronounLine(pronoun)][1];
+        console.log(pronounLine);
+        let match, nounLess, result;
+        if (pronounLine.includes("'"))
+        {
+          nounLess = pronounLine.split("'"); 
+          result = nounLess[1];
+        }
+        else
+        {
+          match = pronounLine.match(/(?<=\s).*/);           
+          nounLess = match[0].split("/"); 
+          result = nounLess[0]
+        }
+        
         // compare input with the dictionary
-        // pronounLine = "**"+pronounLine[]+"**"+pronounLine[3]
-        setInputValue(pronounLine)
+        // pronounLine = "**"+pronounLine[1]+"**"+pronounLine[3]
+        console.log(result);
+        setInputValue(result)
         setTimeout(() => {
           setInputValue("");
         }, 3000);
+        
       })
       .catch(function (error) {
         console.error(error);
