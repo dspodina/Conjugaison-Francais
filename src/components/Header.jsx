@@ -36,7 +36,7 @@ const Header = () => {
   };
   
   return (
-    <div className="container mx-auto my-4 flex lg:flex-row h-[100px] lg:h-[150px] justify-between items-center">
+    <div className="container mx-auto my-4 flex lg:flex-row h-[100px] lg:h-[100px] justify-between items-center">
       <div className="">
         <Link href="/">
           <Image

@@ -12,7 +12,7 @@ export default function Home() {
         <h2 className="flex justify-center mt-12 mb-12 font-alkatra">
           About Pa-ra-pa Parler
         </h2>
-        <div className="flex mx-8 lg:w-2/3 text-lg mb-16">
+        <div className="flex mx-8 lg:w-2/3 text-lg mb-16 leading-snug">
           <p className="text-center">
             Bonjour and welcome to Pa-ra-pa Parler! As junior WebDeveloper and
             french language enthusiast I created an app for practicing french
