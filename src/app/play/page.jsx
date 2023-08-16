@@ -34,6 +34,8 @@ const Play = () => {
     "Stay calm and keep learning!",
     "No, no, no!",
   ];
+
+
   const rightAnswers = [
     "Done",
     "Proud of you!",
@@ -48,11 +50,13 @@ const Play = () => {
     "Hope you didn't look at the answer!",
   ];
 
+
   useEffect(() => {
     setVerb(randomVerb());
     setPronoun(randomPronoun());
     setTenses(randomTenses());
   }, []);
+
 
   const [inputValue, setInputValue] = useState("");
 
@@ -60,15 +64,18 @@ const Play = () => {
     setInputValue(event.target.value);
   };
 
+
   const randomWrongAnswer = () => {
     const randomIndex = Math.floor(Math.random() * wrongAnswers.length);
     return wrongAnswers[randomIndex];
   };
 
+
   const randomRightAnswer = () => {
     const randomIndex = Math.floor(Math.random() * rightAnswers.length);
     return rightAnswers[randomIndex];
   };
+
 
   const handleButtonClick = () => {
     setInputValue("");
@@ -109,6 +116,7 @@ const Play = () => {
       });
   };
 
+
   if (wrongAnswers.includes(playResult)) {
     testvariable = (
       <Image src={tryAgain} alt="" className="w-[25px] mt-5 mr-1" />
@@ -119,6 +127,7 @@ const Play = () => {
     );
   } else testvariable = "";
 
+
   const options = {
     method: "GET",
     url: "https://french-conjugaison.p.rapidapi.com/conjugate/" + verb,
@@ -127,6 +136,7 @@ const Play = () => {
       "X-RapidAPI-Host": "french-conjugaison.p.rapidapi.com",
     },
   };
+
 
   const handleHint = () => {
     // setInputValue("");
@@ -170,19 +180,14 @@ const Play = () => {
   };
 
   return (
-    <div>
-      <div>
-        <h2 className="flex justify-center mt-12 font-alkatra">
-          Let's learn the verbs!
-        </h2>
-      </div>
-      <h3 className="flex justify-center mt-16">
-        <span className="text-smokypink uppercase mr-2">{verb}</span>
-        {tenses}
+    <div className="flex flex-col h-3/6 justify-center items-center mt-16">
+      <h3 className="m-4">
+        <span className="text-smokypink uppercase text-2xl mr-2">{verb}</span>
+        <span className="text-2xl italic">{tenses}</span>
       </h3>
       <div className="min-h-[40px] mt-4">
-        <div className="flex flex-row justify-center">
-          <p className="text-2xl font-alkatra mr-4 capitalize">{pronoun}</p>
+        <div className="flex flex-row justify-center items-center">
+          <p className="text-2xl mr-4 capitalize">{pronoun}</p>
           <GameInput value={inputValue} onChange={handleInputChange} />
           <CheckResultButton
             value={inputValue}

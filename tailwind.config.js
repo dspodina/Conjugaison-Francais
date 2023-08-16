@@ -28,7 +28,7 @@ module.exports = {
       fontFamily: {
         sans: ["var(--font-caveat)"],
         mono: ["var(--font-poppins)"],
-        alkatra: ["Alkatra", "cursive"],
+        kalam: ["Kalam", "latin", "300"],
       },
     },
   },
