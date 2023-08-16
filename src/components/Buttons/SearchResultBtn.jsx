@@ -8,7 +8,7 @@ const SearchResultButton = ({ handleSubmit, value }) => {
       {value.length > 0 ? (
         <button
           onClick={handleSubmit}
-          className="bg-greenish rounded-r-lg lg:min-w-[100px] shadow-md min-w-[70px] hover:bg-[#ABC8B6]"
+          className="rounded-r-lg lg:min-w-[100px] min-w-[70px]"
         >
           <Link className="text-lg" href="/conjugaison">
             Search
@@ -16,7 +16,7 @@ const SearchResultButton = ({ handleSubmit, value }) => {
         </button>
       ) : (
         <button
-          className="bg-greenish text-lg rounded-r-lg lg:min-w-[100px] shadow-md min-w-[70px] opacity-90 cursor-not-allowed"
+          className="bg-greenish hover:bg-[#c4dbcd] text-lg rounded-r-lg lg:min-w-[100px] min-w-[70px] opacity-90 cursor-not-allowed"
           disabled
         >
           Search

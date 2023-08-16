@@ -1,8 +1,8 @@
 const Footer = () => {
   return (
     <div className="bg-greenish h-[70px] text-lg flex items-center">
-      <div className="container mx-auto flex justify-center md:justify-start">
-        <p>©2023 - Pa-ra-pa-parler. All rights reserved.</p>
+      <div className="container flex mx-6 md:mx-auto">
+        <p>2023 © Pa-ra-pa-parler</p>
       </div>
     </div>
   );

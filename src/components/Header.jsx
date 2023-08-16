@@ -36,20 +36,22 @@ const Header = () => {
   };
   
   return (
-    <div className="container mx-auto my-4 flex lg:flex-row h-[100px] lg:h-[100px] justify-between items-center">
-      <div className="">
-        <Link href="/">
-          <Image
-            src={Logo}
-            alt="pa-ra-pa-parler"
-            className="w-[200px] md:items-center"
-          />
-        </Link>
-      </div>
-      <div className="flex flex-row justify-end mx-4">
-        <SearchInput value={inputValue} onChange={handleInputChange} />
-        <SearchResultButton  value={inputValue}
-            handleSubmit={handleButtonClick}/>
+    <div className="container mx-auto">
+      <div className="my-12 md:my-4 mx-6 md:mx-auto flex flex-row h-[50px] lg:h-[100px] justify-between items-center">
+        <div className="">
+          <Link href="/">
+            <Image
+              src={Logo}
+              alt="pa-ra-pa-parler"
+              className="max-w-[200px] lg:min-w-[200px]"
+            />
+          </Link>
+        </div>
+        <div className="flex flex-row justify-end md:justify-center w-screen md:w-[400px]">
+          <SearchInput value={inputValue} onChange={handleInputChange} />
+          <SearchResultButton  value={inputValue}
+              handleSubmit={handleButtonClick}/>
+        </div>
       </div>
     </div>
   );
