@@ -37,13 +37,13 @@ const Header = () => {
   
   return (
     <div className="container mx-auto">
-      <div className="my-12 md:my-4 mx-6 md:mx-auto flex flex-row h-[50px] lg:h-[100px] justify-between items-center">
+      <div className="my-8 md:my-4 mx-2 md:mx-auto flex flex-row h-[50px] lg:h-[100px] justify-between items-center">
         <div className="">
           <Link href="/">
             <Image
               src={Logo}
               alt="pa-ra-pa-parler"
-              className="max-w-[200px] lg:min-w-[200px]"
+              className="max-w-[150px] lg:min-w-[200px]"
             />
           </Link>
         </div>
