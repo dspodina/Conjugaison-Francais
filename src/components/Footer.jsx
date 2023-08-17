@@ -31,11 +31,11 @@ const Footer = () => {
 
   return (
     <footer className="bg-greenish text-lg p-4">
-      <div className="container mx-auto flex flex-row items-center justify-between h-[100px] md:h-[60px]">
+      <div className="container mx-auto my-6 md:my-4 flex flex-col md:items-start items-center justify-between">
         <div>
           <p>2023 © Pa-ra-pa-parler</p>
         </div>
-        <div className="flex md:hidden md:justify-end">
+        <div className="flex md:hidden md:justify-end mt-4 md:mt-0">
           <SearchInput
             value={inputValue}
             onChange={handleInputChange}
