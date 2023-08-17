@@ -1,12 +1,12 @@
 ## Bonjour and welcome to Pa-ra-pa Parler!
 
-Bonjour and welcome to Pa-ra-pa Parler!
-As junior WebDeveloper and french language enthusiast I created an
-app for practicing french verb conjugation fun and easy. An
-interface is user-friendly and allows you to practice verbs with diferent tenses and pronouns. I'm constantly updating and improving my project to
-make language learning more accessible and enjoyable.
+As a junior web developer and French language enthusiast, I created an app for practicing French verb conjugation fun and easy. An
+interface is user-friendly and allows you to practice verbs with different tenses and pronouns. I'm constantly updating and improving my project to make language learning more accessible and enjoyable.
 
-Project based on React, API, NEXTJS@13 and styted by Tailwind.
+- App built using React,
+- Styled using Tailwind CSS,
+- Configured with Next.js version 13,
+- Receiving API responses from RapidAPI. 
 
 ### Getting Started
 
