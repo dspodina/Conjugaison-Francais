@@ -6,7 +6,8 @@ interface is user-friendly and allows you to practice verbs with different tense
 - App built using React,
 - Styled using Tailwind CSS,
 - Configured with Next.js version 13,
-- Receiving API responses from RapidAPI. 
+- Receiving API responses from RapidAPI,
+- Deployed using Netlify.  
 
 ### Getting Started
 
