@@ -36,7 +36,7 @@ const Header = () => {
   
   return (
     <div className="container mx-auto">
-      <div className="flex flex-row justify-between items-center">
+      <div className="flex flex-row justify-between items-center h-[120px]">
         <div className="max-w-[200px] md:min-w-[200px]">
           <Link href="/">
             <Image
