@@ -21,9 +21,12 @@ module.exports = {
     extend: {
       colors: {
         beige: "#e8ddc7",
+        beigeBtn: "#DBCBA9",
+        beigeBtnHover: "#E7DCC5",
         pink: "#EFCDB9",
         greenish: "#B6D2C1",
-        smokypink: "#EBA596"
+        pinkHover: "#EBC2AF",
+        smokyPink: "#EBA596"
       },
       fontFamily: {
         sans: ["var(--font-caveat)"],

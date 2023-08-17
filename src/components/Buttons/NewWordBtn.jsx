@@ -15,7 +15,7 @@ const TensesNewWord = () => {
     setTenses(randomTenses())
   }
   return (
-    <button onClick={handleUpdate} className="bg-pink text-lg mx-4 shadow-md mt-4 px-8 min-h-[40px] min-w-[180px] rounded-lg hover:bg-[#EBC2AF]">
+    <button onClick={handleUpdate} className="bg-pink text-lg mx-4 shadow-md mt-4 px-8 min-h-[40px] min-w-[180px] rounded-lg hover:bg-pinkHover">
       Try a new word
     </button>
   );

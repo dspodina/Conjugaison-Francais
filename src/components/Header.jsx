@@ -16,7 +16,6 @@ const Header = () => {
     setInputValue(event.target.value);
   };
 
-  
 
   const handleButtonClick = () => {
     setInputValue("");
@@ -37,23 +36,30 @@ const Header = () => {
   
   return (
     <div className="container mx-auto">
-      <div className="my-8 md:my-4 mx-2 md:mx-auto flex flex-row h-[50px] lg:h-[100px] justify-between items-center">
-        <div className="">
-          <Link href="/">
-            <Image
-              src={Logo}
-              alt="pa-ra-pa-parler"
-              className="max-w-[150px] lg:min-w-[200px]"
-            />
-          </Link>
-        </div>
-        <div className="flex flex-row justify-end md:justify-center w-screen md:w-[400px]">
-          <SearchInput value={inputValue} onChange={handleInputChange} />
-          <SearchResultButton  value={inputValue}
-              handleSubmit={handleButtonClick}/>
-        </div>
-      </div>
+  <div className="my-0 md:my-4 flex flex-row md:h-[100px] justify-between items-center w-full md:w-auto">
+    <div className="mb-4 md:mb-0">
+      <Link href="/">
+        <Image
+          src={Logo}
+          alt="pa-ra-pa-parler"
+          className="max-w-[200px] md:min-w-[200px]"
+        />
+      </Link>
     </div>
+    <div className="w-full md:flex md:flex-row hidden md:justify-end">
+        <SearchInput
+          value={inputValue}
+          onChange={handleInputChange}
+          className=""
+        />
+        <SearchResultButton
+          value={inputValue}
+          handleSubmit={handleButtonClick}
+          className=""
+        />
+    </div>
+  </div>
+</div>
   );
 };
 
