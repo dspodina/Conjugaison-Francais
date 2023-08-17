@@ -180,7 +180,7 @@ const Play = () => {
   };
 
   return (
-    <div className="flex flex-col h-3/6 justify-center items-center mt-4 md:mt-16">
+    <div className="flex flex-col h-3/6 justify-center items-center mt-12">
       <h3 className="m-4">
         <span className="text-smokyPink uppercase text-2xl mr-2">{verb}</span>
         <span className="text-2xl italic">{tenses}</span>
