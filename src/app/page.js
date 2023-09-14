@@ -181,7 +181,7 @@ const Play = () => {
   };
 
   return (
-    <div className="flex flex-col items-center justify-center h-screen">
+    <div className="flex flex-col items-center justify-center pt-16">
         <div className="m-4">
           <h3>
             <span className="text-smokyPink uppercase text-2xl mr-2">{verb}</span>

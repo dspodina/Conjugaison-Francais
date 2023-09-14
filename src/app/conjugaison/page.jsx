@@ -8,7 +8,7 @@ const Conjugaison = () => {
     data && (
       <div className="container mx-auto mb-36">
         <div className="mx-4">
-          <h2 className="flex my-12 lg:my-16 font-alkatra">
+          <h2 className="flex my-12 lg:my-16">
             Conjugaison du verbe:{" "}
             <span className="uppercase ml-4 flex items-center">
               {data && data.word}
