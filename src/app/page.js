@@ -13,6 +13,7 @@ import { randomVerb } from "src/app/utilities.js";
 import { randomPronoun } from "src/app/utilities.js";
 import { randomTenses } from "src/app/utilities.js";
 import { useGlobalContext } from "src/app/context";
+import { Container } from "postcss";
 
 const Play = () => {
   let { verb, setVerb } = useGlobalContext();
@@ -180,29 +181,31 @@ const Play = () => {
   };
 
   return (
-    <div className="flex flex-col h-3/6 justify-center items-center mt-12">
-      <h3 className="m-4">
-        <span className="text-smokyPink uppercase text-2xl mr-2">{verb}</span>
-        <span className="text-2xl italic">{tenses}</span>
-      </h3>
-      <div className="min-h-[40px] mt-4">
-        <div className="flex flex-row justify-center items-center">
-          <p className="text-2xl mr-4 capitalize">{pronoun}</p>
-          <GameInput value={inputValue} onChange={handleInputChange} />
-          <CheckResultButton
-            value={inputValue}
-            handleSubmit={handleButtonClick}
-          />
+    <div className="flex flex-col items-center justify-center h-screen">
+        <div className="m-4">
+          <h3>
+            <span className="text-smokyPink uppercase text-2xl mr-2">{verb}</span>
+            <span className="text-2xl italic">{tenses}</span>
+          </h3>
         </div>
-        <div className="flex flex-row justify-center">
-          <p>{testvariable}</p>
-          <p className="text-lg mt-4">{playResult}</p>
+        <div className="min-h-[40px] mt-4">
+          <div className="flex flex-row">
+            <p className="text-2xl mr-4 capitalize">{pronoun}</p>
+            <GameInput value={inputValue} onChange={handleInputChange} />
+            <CheckResultButton
+              value={inputValue}
+              handleSubmit={handleButtonClick}
+            />
+          </div>
+          <div className="flex flex-row">
+            <p>{testvariable}</p>
+            <p className="text-lg mt-4">{playResult}</p>
+          </div>
         </div>
-      </div>
-      <div className="flex flex-row justify-center mt-8 mb-24">
-        <NewWordBtn />
-        <GetAHintBtn handleInputChange={handleInputChange} onClick={handleHint} />
-      </div>
+        <div className="flex flex-row mt-8 mb-24">
+          <NewWordBtn />
+          <GetAHintBtn handleInputChange={handleInputChange} onClick={handleHint} />
+        </div>
     </div>
   );
 };
