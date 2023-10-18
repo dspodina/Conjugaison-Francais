@@ -20,7 +20,7 @@ module.exports = {
     },
     extend: {
       colors: {
-        beige: "#e8ddc7",
+        beige: "#fbf5f0",
         beigeBtn: "#E7DCC5",
         beigeBtnHover: "#E1D4B7",
         pink: "#EFCDB9",
